@@ -10,17 +10,17 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 the sum of the even-valued terms.
 '''
 
+from functools import partial
 from helpers import runtime
 
-def even_fibonacci_numbers():
-    max = 4000000
+def even_fibonacci_numbers(maximum):
     n1 = 1
     n2 = 1
     sum = 0
-    while (n2 <= max):
+    while (n2 <= maximum):
         if n2 % 2 == 0:
             sum += n2
         n1, n2 = n2, n1 + n2
     return sum
 
-runtime.print_answer_and_elapsed_time(even_fibonacci_numbers)
+runtime.print_answer_and_elapsed_time(partial(even_fibonacci_numbers, maximum = 4000000))

@@ -16,15 +16,16 @@ Find the difference between the sum of the squares of the first one hundred natu
 square of the sum.
 '''
 
+from functools import partial
 from helpers import runtime
 
-def sum_square_difference():
-    number = 100
+def sum_square_difference(number):
+    natural_numbers = range(1, number + 1)
     sum = 0
-    for n in range(1, 101):
-        for m in range(1, 101):
+    for n in natural_numbers:
+        for m in natural_numbers:
             if n != m:
                 sum += n * m
     return sum
 
-runtime.print_answer_and_elapsed_time(sum_square_difference)
+runtime.print_answer_and_elapsed_time(partial(sum_square_difference, number = 100))

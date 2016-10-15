@@ -19,14 +19,14 @@ Use the formula 1 + 2 + ... + n = n * (n + 1) / 2
 = 233168
 '''
 
+from functools import partial
 from helpers import runtime
 
-def multiples_of_3_and_5():
-    number = 1000
+def multiples_of_3_and_5(maximum):
     sum = 0
-    for n in range(number):
+    for n in range(maximum):
         if n % 3 == 0 or n % 5 == 0:
             sum += n
     return sum
 
-runtime.print_answer_and_elapsed_time(multiples_of_3_and_5)
+runtime.print_answer_and_elapsed_time(partial(multiples_of_3_and_5, maximum = 1000))
