@@ -29,4 +29,5 @@ def multiples_of_3_and_5(maximum):
             sum += n
     return sum
 
-runtime.print_answer_and_elapsed_time(partial(multiples_of_3_and_5, maximum = 1000))
+if __name__ == "__main__":
+    runtime.print_answer_and_elapsed_time(partial(multiples_of_3_and_5, maximum = 1000))

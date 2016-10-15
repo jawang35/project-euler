@@ -28,4 +28,5 @@ def sum_square_difference(number):
                 sum += n * m
     return sum
 
-runtime.print_answer_and_elapsed_time(partial(sum_square_difference, number = 100))
+if __name__ == "__main__":
+    runtime.print_answer_and_elapsed_time(partial(sum_square_difference, number = 100))

@@ -19,4 +19,5 @@ def largest_prime_factor(number):
             return n
     return number
 
-runtime.print_answer_and_elapsed_time(partial(largest_prime_factor, number = 600851475143))
+if __name__ == "__main__":
+    runtime.print_answer_and_elapsed_time(partial(largest_prime_factor, number = 600851475143))

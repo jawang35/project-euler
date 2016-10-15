@@ -23,4 +23,5 @@ def even_fibonacci_numbers(maximum):
         n1, n2 = n2, n1 + n2
     return sum
 
-runtime.print_answer_and_elapsed_time(partial(even_fibonacci_numbers, maximum = 4000000))
+if __name__ == "__main__":
+    runtime.print_answer_and_elapsed_time(partial(even_fibonacci_numbers, maximum = 4000000))

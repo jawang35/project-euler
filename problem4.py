@@ -17,4 +17,5 @@ def largest_palindrome_product(minimum, maximum):
                 for m in range(n, maximum)
                 if palindrome(str(n * m))])
 
-runtime.print_answer_and_elapsed_time(partial(largest_palindrome_product, minimum = 100, maximum = 1000))
+if __name__ == "__main__":
+    runtime.print_answer_and_elapsed_time(partial(largest_palindrome_product, minimum = 100, maximum = 1000))
