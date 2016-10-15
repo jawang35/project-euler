@@ -12,12 +12,15 @@ from helpers import runtime
 from helpers.math import sieve_of_eratosthenes
 
 def largest_prime_factor(number):
-    sqrt_of_number = round(math.sqrt(number))
-    sieve = sieve_of_eratosthenes(sqrt_of_number)
-    for n in reversed(range(sqrt_of_number)):
-        if sieve[n] and number % n == 0:
-            return n
-    return number
+    sqrt_of_number = math.floor(math.sqrt(number)) + 1
+    factor = 1
+    for n in range(2, sqrt_of_number):
+        if number % n == 0:
+            factor = n
+            break
+    if factor == 1:
+        return number
+    return max(largest_prime_factor(factor), largest_prime_factor(number / factor))
 
 if __name__ == "__main__":
     runtime.print_answer_and_elapsed_time(partial(largest_prime_factor, number = 600851475143))
