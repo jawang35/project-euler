@@ -10,13 +10,14 @@ from functools import partial
 from helpers import runtime
 from helpers.math import sieve_of_eratosthenes, is_prime
 
-def prime_number(number):
-    count = 2
-    n = 3
+def nth_prime_number(number):
+    count = 0
+    n = 1
     while count < number:
-        n += 2
+        n += 1
         if is_prime(n):
             count += 1
     return n
 
-runtime.print_answer_and_elapsed_time(partial(prime_number, number = 10001))
+if __name__ == "__main__":
+    runtime.print_answer_and_elapsed_time(partial(nth_prime_number, number = 10001))
