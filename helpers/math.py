@@ -1,5 +1,7 @@
 import math
-import itertools
+from functools import reduce
+from itertools import combinations
+from operator import mul
 
 def sieve_of_eratosthenes(max):
     sieve = [True] * max
@@ -29,9 +31,6 @@ def divisors(number):
     result = set()
     prime_divisors_list = prime_divisors(number)
     for n in range(1, len(prime_divisors_list) + 1):
-        for combination in itertools.combinations(prime_divisors_list, n):
-            divisor = 1
-            for c in combination:
-                divisor *= c
-            result.add(divisor)
+        for combination in combinations(prime_divisors_list, n):
+            result.add(reduce(mul, combination, 1))
     return result
