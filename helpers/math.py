@@ -1,4 +1,5 @@
 import math
+import itertools
 
 def sieve_of_eratosthenes(max):
     sieve = [True] * max
@@ -16,3 +17,21 @@ def is_prime(number):
         if number % n == 0:
             return False
     return True
+
+def prime_divisors(number):
+    sqrt_of_number = math.floor(math.sqrt(number)) + 1
+    for n in range(2, sqrt_of_number):
+        if number % n == 0:
+            return prime_divisors(n) + prime_divisors(int(number / n))
+    return [number]
+
+def divisors(number):
+    result = set()
+    prime_divisors_list = prime_divisors(number)
+    for n in range(1, len(prime_divisors_list) + 1):
+        for combination in itertools.combinations(prime_divisors_list, n):
+            divisor = 1
+            for c in combination:
+                divisor *= c
+            result.add(divisor)
+    return result
