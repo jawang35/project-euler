@@ -59,5 +59,6 @@ def largest_product_in_a_grid(grid):
 
 if __name__ == "__main__":
     with open('assets/problem11/grid.txt') as file:
-        grid = [[int(n) for n in line.split(" ")] for line in file]
+        parse = lambda line: [int(n) for n in line.split(" ")]
+        grid = [parse(line) for line in file]
         runtime.print_answer_and_elapsed_time(partial(largest_product_in_a_grid, grid))
