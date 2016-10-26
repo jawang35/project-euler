@@ -16,12 +16,10 @@ class GridRouteTracker:
 
     def parse_key(self, key):
         x, y = key[0], key[1]
-        return "%(x)s,%(y)s" % locals() if x < y else "%(y)s,%(x)s" % locals()
+        return (x, y) if x < y else (y, x)
 
     def __getitem__(self, key):
-        if key[0] == 0 or key[1] == 0:
-            return 1
-        return self.grids[self.parse_key(key)]
+        return 1 if key[0] == 0 or key[1] == 0 else self.grids[self.parse_key(key)]
 
     def __setitem__(self, key, routes):
         self.grids[self.parse_key(key)] = routes
