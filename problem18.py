@@ -42,8 +42,7 @@ def maximum_path_sum(triangle):
   triangle_height = len(sum_triangle)
   for i in range(triangle_height):
     if i == 0: continue
-    row = sum_triangle[i]
-    row_length = len(row)
+    row_length = len(sum_triangle[i])
     for j in range(row_length):
       if j == 0:
         sum_triangle[i][j] += sum_triangle[i - 1][0]
