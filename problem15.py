@@ -19,7 +19,6 @@ class GridRouteTracker:
         return "%(x)s,%(y)s" % locals() if x < y else "%(y)s,%(x)s" % locals()
 
     def __getitem__(self, key):
-        print(key)
         if key[0] == 0 or key[1] == 0:
             return 1
         return self.grids[self.parse_key(key)]
