@@ -38,22 +38,16 @@ from functools import partial
 from helpers import runtime
 
 def maximum_path_sum(triangle):
-  sum_triangle = [[number for number in row] for row in triangle]
-  triangle_height = len(sum_triangle)
-  for i in range(triangle_height):
-    if i == 0: continue
-    row_length = len(sum_triangle[i])
-    for j in range(row_length):
-      if j == 0:
-        sum_triangle[i][j] += sum_triangle[i - 1][0]
-      elif j == row_length - 1:
-        sum_triangle[i][j] += sum_triangle[i - 1][j - 1]
-      else:
-        sum_triangle[i][j] += max(sum_triangle[i - 1][j - 1], sum_triangle[i - 1][j])
-  return max(sum_triangle[triangle_height - 1])
+    sum_triangle = [[number for number in row] for row in triangle]
+    triangle_height = len(sum_triangle)
+    for i in range(triangle_height - 2, -1, -1):
+        row_length = len(sum_triangle[i])
+        for j in range(row_length):
+            sum_triangle[i][j] += max(sum_triangle[i + 1][j], sum_triangle[i + 1][j + 1])
+    return sum_triangle[0][0]
 
 if __name__ == "__main__":
-  with open('assets/problem18/triangle.txt') as file:
-    parse = lambda row: [int(n) for n in row.split(" ")]
-    triangle = [parse(row) for row in file]
-    runtime.print_answer_and_elapsed_time(partial(maximum_path_sum, triangle))
+    with open('assets/problem18/triangle.txt') as file:
+        parse = lambda row: [int(n) for n in row.split(" ")]
+        triangle = [parse(row) for row in file]
+        runtime.print_answer_and_elapsed_time(partial(maximum_path_sum, triangle))
