@@ -30,7 +30,7 @@ What is the greatest product of four adjacent numbers in the same direction (up,
 '''
 
 from functools import partial
-from helpers import runtime
+from helpers.runtime import print_answer_and_elapsed_time
 
 def largest_product_in_a_grid(grid):
     largest_product = 1
@@ -61,4 +61,4 @@ if __name__ == "__main__":
     with open('assets/problem11/grid.txt') as file:
         parse = lambda line: [int(n) for n in line.split(" ")]
         grid = [parse(line) for line in file]
-        runtime.print_answer_and_elapsed_time(partial(largest_product_in_a_grid, grid))
+        print_answer_and_elapsed_time(partial(largest_product_in_a_grid, grid))

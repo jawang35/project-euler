@@ -19,7 +19,7 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 '''
 
 from functools import partial
-from helpers import runtime
+from helpers.runtime import print_answer_and_elapsed_time
 
 def longest_collatz_sequence(maximum):
     longest_sequence = 0
@@ -42,4 +42,4 @@ def longest_collatz_sequence(maximum):
     return result
 
 if __name__ == "__main__":
-    runtime.print_answer_and_elapsed_time(partial(longest_collatz_sequence, maximum = 1000000))
+    print_answer_and_elapsed_time(partial(longest_collatz_sequence, maximum = 1000000))

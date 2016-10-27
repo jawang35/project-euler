@@ -22,7 +22,7 @@ What is the value of the first triangle number to have over five hundred divisor
 '''
 
 from functools import partial
-from helpers import runtime
+from helpers.runtime import print_answer_and_elapsed_time
 from helpers import math
 
 def highly_divisible_triangular_number(number_of_divisors):
@@ -36,4 +36,4 @@ def highly_divisible_triangular_number(number_of_divisors):
             return triangle_number
 
 if __name__ == "__main__":
-    runtime.print_answer_and_elapsed_time(partial(highly_divisible_triangular_number, number_of_divisors = 500))
+    print_answer_and_elapsed_time(partial(highly_divisible_triangular_number, number_of_divisors = 500))

@@ -8,7 +8,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 '''
 
 from functools import partial
-from helpers import runtime
+from helpers.runtime import print_answer_and_elapsed_time
 from helpers.string import is_palindrome
 
 def largest_palindrome_product(minimum, maximum):
@@ -18,4 +18,4 @@ def largest_palindrome_product(minimum, maximum):
                 if is_palindrome(str(n * m))])
 
 if __name__ == "__main__":
-    runtime.print_answer_and_elapsed_time(partial(largest_palindrome_product, minimum = 100, maximum = 1000))
+    print_answer_and_elapsed_time(partial(largest_palindrome_product, minimum = 100, maximum = 1000))

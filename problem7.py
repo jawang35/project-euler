@@ -7,7 +7,7 @@ What is the 10001st prime number?
 '''
 
 from functools import partial
-from helpers import runtime
+from helpers.runtime import print_answer_and_elapsed_time
 from helpers.math import sieve_of_eratosthenes, is_prime
 
 def nth_prime_number(number):
@@ -20,4 +20,4 @@ def nth_prime_number(number):
     return n
 
 if __name__ == "__main__":
-    runtime.print_answer_and_elapsed_time(partial(nth_prime_number, number = 10001))
+    print_answer_and_elapsed_time(partial(nth_prime_number, number = 10001))

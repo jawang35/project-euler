@@ -8,7 +8,7 @@ How many such routes are there through a 20×20 grid?
 '''
 
 from functools import partial
-from helpers import runtime
+from helpers.runtime import print_answer_and_elapsed_time
 
 class GridRouteTracker:
     def __init__(self):
@@ -33,4 +33,4 @@ def lattice_paths(width, height):
     return grid_route_tracker[(width, height)]
 
 if __name__ == "__main__":
-    runtime.print_answer_and_elapsed_time(partial(lattice_paths, width = 20, height = 20))
+    print_answer_and_elapsed_time(partial(lattice_paths, width = 20, height = 20))

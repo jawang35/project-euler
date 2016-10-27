@@ -13,7 +13,7 @@ Find the product abc.
 
 import math
 from functools import partial
-from helpers import runtime
+from helpers.runtime import print_answer_and_elapsed_time
 
 def special_pythagorean_triplet(sum):
     numbers_to_sum = range(1, sum)
@@ -25,4 +25,4 @@ def special_pythagorean_triplet(sum):
     return 0
 
 if __name__ == "__main__":
-    runtime.print_answer_and_elapsed_time(partial(special_pythagorean_triplet, 1000))
+    print_answer_and_elapsed_time(partial(special_pythagorean_triplet, 1000))

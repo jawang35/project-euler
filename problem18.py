@@ -35,7 +35,7 @@ solved by brute force, and requires a clever method! ;o)
 '''
 
 from functools import partial
-from helpers import runtime
+from helpers.runtime import print_answer_and_elapsed_time
 
 def maximum_path_sum(triangle):
     sum_triangle = [[number for number in row] for row in triangle]
@@ -50,4 +50,4 @@ if __name__ == "__main__":
     with open('assets/problem18/triangle.txt') as file:
         parse = lambda row: [int(n) for n in row.split(" ")]
         triangle = [parse(row) for row in file]
-        runtime.print_answer_and_elapsed_time(partial(maximum_path_sum, triangle))
+        print_answer_and_elapsed_time(partial(maximum_path_sum, triangle))

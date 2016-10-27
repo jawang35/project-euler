@@ -30,7 +30,7 @@ the value of this product?
 '''
 
 from functools import partial
-from helpers import runtime
+from helpers.runtime import print_answer_and_elapsed_time
 
 def largest_product_in_a_series(series, digits):
     product = 1
@@ -45,4 +45,4 @@ def largest_product_in_a_series(series, digits):
 if __name__ == "__main__":
     with open('assets/problem8/series.txt') as file:
         series = file.readline()
-        runtime.print_answer_and_elapsed_time(partial(largest_product_in_a_series, series = series, digits = 13))
+        print_answer_and_elapsed_time(partial(largest_product_in_a_series, series = series, digits = 13))

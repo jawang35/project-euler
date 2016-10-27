@@ -13,7 +13,7 @@ numbers is in compliance with British usage.
 '''
 
 from functools import partial
-from helpers import runtime
+from helpers.runtime import print_answer_and_elapsed_time
 
 ones = {
     "1": 3, # one
@@ -78,4 +78,4 @@ def number_letter_counts(maximum):
     return sum
 
 if __name__ == "__main__":
-    runtime.print_answer_and_elapsed_time(partial(number_letter_counts, maximum = 1000))
+    print_answer_and_elapsed_time(partial(number_letter_counts, maximum = 1000))

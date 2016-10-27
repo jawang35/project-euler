@@ -17,7 +17,7 @@ square of the sum.
 '''
 
 from functools import partial
-from helpers import runtime
+from helpers.runtime import print_answer_and_elapsed_time
 
 def sum_square_difference(number):
     natural_numbers = range(1, number + 1)
@@ -29,4 +29,4 @@ def sum_square_difference(number):
     return sum
 
 if __name__ == "__main__":
-    runtime.print_answer_and_elapsed_time(partial(sum_square_difference, number = 100))
+    print_answer_and_elapsed_time(partial(sum_square_difference, number = 100))

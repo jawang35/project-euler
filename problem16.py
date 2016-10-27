@@ -7,7 +7,7 @@ What is the sum of the digits of the number 2**1000?
 '''
 
 from functools import partial
-from helpers import runtime
+from helpers.runtime import print_answer_and_elapsed_time
 
 def double_number_string(number_string):
     carry = 0
@@ -28,4 +28,4 @@ def power_digit_sum(power):
     return sum([int(digit) for digit in list(power_of_two)])
 
 if __name__ == "__main__":
-    runtime.print_answer_and_elapsed_time(partial(power_digit_sum, power = 1000))
+    print_answer_and_elapsed_time(partial(power_digit_sum, power = 1000))
