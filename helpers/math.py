@@ -28,7 +28,7 @@ def prime_divisors(number):
     return [number]
 
 def divisors(number):
-    result = set()
+    result = set([1])
     prime_divisors_list = prime_divisors(number)
     for n in range(1, len(prime_divisors_list) + 1):
         for combination in combinations(prime_divisors_list, n):
