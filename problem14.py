@@ -41,5 +41,5 @@ def longest_collatz_sequence(maximum):
             result = number
     return result
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print_answer_and_elapsed_time(partial(longest_collatz_sequence, maximum = 1000000))

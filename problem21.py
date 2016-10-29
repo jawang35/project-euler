@@ -28,5 +28,5 @@ def amicable_numbers(maximum):
                 amicable_number_set.add(m)
     return sum([number for number in amicable_number_set if number < maximum])
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print_answer_and_elapsed_time(partial(amicable_numbers, maximum = 10000))

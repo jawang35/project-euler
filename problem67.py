@@ -24,8 +24,8 @@ from functools import partial
 from helpers import runtime
 from problem18 import maximum_path_sum
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     with open('assets/problem67/triangle.txt') as file:
-        parse = lambda row: [int(n) for n in row.split(" ")]
+        parse = lambda row: [int(n) for n in row.split(' ')]
         triangle = [parse(row) for row in file]
         runtime.print_answer_and_elapsed_time(partial(maximum_path_sum, triangle))

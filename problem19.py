@@ -52,7 +52,7 @@ def counting_sundays(start, end):
                 sundays_on_first_of_month += 1
     return sundays_on_first_of_month
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     start = date(1901, 1, 1)
     end = date(2000, 12, 31)
     print_answer_and_elapsed_time(partial(counting_sundays, start, end))

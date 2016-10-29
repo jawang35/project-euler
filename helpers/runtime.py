@@ -5,5 +5,5 @@ def print_answer_and_elapsed_time(function):
     answer = function()
     elapsed = 1000 * (timeit.default_timer() - start)
 
-    print("Answer: %(answer)s" % locals())
-    print("Elapsed time: %(elapsed)s ms" % locals())
+    print('Answer: %(answer)s' % locals())
+    print('Elapsed time: %(elapsed)s ms' % locals())

@@ -13,5 +13,5 @@ from helpers.math import prime_divisors
 def largest_prime_factor(number):
     return max(prime_divisors(number))
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print_answer_and_elapsed_time(partial(largest_prime_factor, number = 600851475143))

@@ -19,13 +19,13 @@ def double_number_string(number_string):
         carry = int(double_char / 10)
     if carry > 0:
         result_list.append(str(carry))
-    return "".join(reversed(result_list))
+    return ''.join(reversed(result_list))
 
 def power_digit_sum(power):
-    power_of_two = "1"
+    power_of_two = '1'
     for n in range(1, power + 1):
         power_of_two = double_number_string(power_of_two)
     return sum([int(digit) for digit in list(power_of_two)])
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print_answer_and_elapsed_time(partial(power_digit_sum, power = 1000))

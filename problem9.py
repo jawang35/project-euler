@@ -24,5 +24,5 @@ def special_pythagorean_triplet(sum):
                 return int(a * b * c)
     return 0
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print_answer_and_elapsed_time(partial(special_pythagorean_triplet, 1000))

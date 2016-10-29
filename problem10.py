@@ -18,5 +18,5 @@ def summation_of_primes(maximum):
             sum += n
     return sum
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print_answer_and_elapsed_time(partial(summation_of_primes, maximum = 2000000))

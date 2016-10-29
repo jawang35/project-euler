@@ -16,39 +16,39 @@ from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
 
 ones = {
-    "1": 3, # one
-    "2": 3, # two
-    "3": 5, # three
-    "4": 4, # four
-    "5": 4, # five
-    "6": 3, # six
-    "7": 5, # seven
-    "8": 5, # eight
-    "9": 4, # nine
+    '1': 3, # one
+    '2': 3, # two
+    '3': 5, # three
+    '4': 4, # four
+    '5': 4, # five
+    '6': 3, # six
+    '7': 5, # seven
+    '8': 5, # eight
+    '9': 4, # nine
 }
 
 tens = {
-    "1": 3, # ten
-    "2": 6, # twenty
-    "3": 6, # thirty
-    "4": 5, # forty
-    "5": 5, # fifty
-    "6": 5, # sixty
-    "7": 7, # seventy
-    "8": 6, # eighty
-    "9": 6, # ninety
+    '1': 3, # ten
+    '2': 6, # twenty
+    '3': 6, # thirty
+    '4': 5, # forty
+    '5': 5, # fifty
+    '6': 5, # sixty
+    '7': 7, # seventy
+    '8': 6, # eighty
+    '9': 6, # ninety
 }
 
 teens = {
-    "11": 6, # eleven
-    "12": 6, # twelve
-    "13": 8, # thirteen
-    "14": 8, # fourteen
-    "15": 7, # fifteen
-    "16": 7, # sixteen
-    "17": 9, # seventeen
-    "18": 8, # eighteen
-    "19": 8, # nineteen
+    '11': 6, # eleven
+    '12': 6, # twelve
+    '13': 8, # thirteen
+    '14': 8, # fourteen
+    '15': 7, # fifteen
+    '16': 7, # sixteen
+    '17': 9, # seventeen
+    '18': 8, # eighteen
+    '19': 8, # nineteen
 }
 
 def number_letter_counts(maximum):
@@ -71,11 +71,11 @@ def number_letter_counts(maximum):
                 if copy > 10:
                     sum += teens[str(copy)]
                 else:
-                    sum += tens["1"]
+                    sum += tens['1']
                 copy = 0
         if copy > 0:
             sum += ones[str(copy)]
     return sum
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print_answer_and_elapsed_time(partial(number_letter_counts, maximum = 1000))

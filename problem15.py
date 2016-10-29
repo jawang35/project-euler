@@ -32,5 +32,5 @@ def lattice_paths(width, height):
             grid_route_tracker[(x, y)] = routes
     return grid_route_tracker[(width, height)]
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print_answer_and_elapsed_time(partial(lattice_paths, width = 20, height = 20))

@@ -35,5 +35,5 @@ def highly_divisible_triangular_number(number_of_divisors):
         if len(divisors) > number_of_divisors:
             return triangle_number
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print_answer_and_elapsed_time(partial(highly_divisible_triangular_number, number_of_divisors = 500))

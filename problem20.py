@@ -16,5 +16,5 @@ from math import factorial
 def factorial_digit_sum(number):
     return sum([int(digit) for digit in str(factorial(number))])
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print_answer_and_elapsed_time(partial(factorial_digit_sum, number = 100))

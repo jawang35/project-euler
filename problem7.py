@@ -19,5 +19,5 @@ def nth_prime_number(number):
             count += 1
     return n
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print_answer_and_elapsed_time(partial(nth_prime_number, number = 10001))
