@@ -1,1 +1,1 @@
-PYTHONPATH=$(pwd) pytest
+PYTHONPATH=$(pwd) py.test -v --color=yes
