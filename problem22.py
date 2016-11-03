@@ -1,3 +1,4 @@
+#coding=utf-8
 '''
 Problem 22 - Name Scores
 
@@ -13,7 +14,6 @@ For example, when the list is sorted into alphabetical order, COLIN, which is wo
 What is the total of all the name scores in the file?
 '''
 
-from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
 
 def name_score(name):
@@ -21,10 +21,14 @@ def name_score(name):
     ascii_score = sum([ord(char) for char in list(name)])
     return ascii_score - offset
 
-def name_scores(names):
+def total_name_scores(names):
     return sum([(i + 1) * name_score(name) for (i, name) in enumerate(names)])
 
-if __name__ == '__main__':
+def answer():
     with open('assets/problem22/names.txt') as file:
         names = sorted(file.read().replace('"', '').split(','))
-        print_answer_and_elapsed_time(partial(name_scores, names))
+        return total_name_scores(names)
+
+
+if __name__ == '__main__':
+        print_answer_and_elapsed_time(answer)

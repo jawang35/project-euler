@@ -8,7 +8,7 @@ Find the sum of all the primes below two million.
 
 from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
-from helpers.math import sieve_of_eratosthenes
+from helpers.numbers import sieve_of_eratosthenes
 
 def summation_of_primes(maximum):
     sieve = sieve_of_eratosthenes(maximum)
@@ -18,5 +18,7 @@ def summation_of_primes(maximum):
             sum += n
     return sum
 
+answer = partial(summation_of_primes, maximum = 2000000)
+
 if __name__ == '__main__':
-    print_answer_and_elapsed_time(partial(summation_of_primes, maximum = 2000000))
+    print_answer_and_elapsed_time(answer)

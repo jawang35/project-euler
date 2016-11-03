@@ -1,3 +1,4 @@
+#coding=utf-8
 '''
 Problem 21 - Amicable Numbers
 
@@ -13,12 +14,12 @@ Evaluate the sum of all the amicable numbers under 10000.
 
 from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
-from helpers.math import divisors
+from helpers.numbers import divisors
 
 def sum_of_proper_divisors(number):
     return sum([divisor for divisor in divisors(number) if divisor < number])
 
-def amicable_numbers(maximum):
+def sum_amicable_numbers(maximum):
     amicable_number_set = set()
     for n in range(maximum):
         if n not in amicable_number_set:
@@ -28,5 +29,7 @@ def amicable_numbers(maximum):
                 amicable_number_set.add(m)
     return sum([number for number in amicable_number_set if number < maximum])
 
+answer = partial(sum_amicable_numbers, maximum = 10000)
+
 if __name__ == '__main__':
-    print_answer_and_elapsed_time(partial(amicable_numbers, maximum = 10000))
+    print_answer_and_elapsed_time(answer)

@@ -1,4 +1,4 @@
-import math
+from math import floor, sqrt
 from functools import reduce
 from itertools import combinations
 from operator import mul
@@ -14,14 +14,14 @@ def sieve_of_eratosthenes(max):
     return sieve
 
 def is_prime(number):
-    sqrt_of_number = math.floor(math.sqrt(number)) + 1
+    sqrt_of_number = int(sqrt(number)) + 1
     for n in range(2, sqrt_of_number):
         if number % n == 0:
             return False
     return True
 
 def prime_divisors(number):
-    sqrt_of_number = math.floor(math.sqrt(number)) + 1
+    sqrt_of_number = int(sqrt(number)) + 1
     for n in range(2, sqrt_of_number):
         if number % n == 0:
             return prime_divisors(n) + prime_divisors(int(number / n))

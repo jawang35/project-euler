@@ -1,3 +1,4 @@
+#coding=utf-8
 '''
 Problem 8 - Largest Product in a Series
 
@@ -29,7 +30,6 @@ Find the thirteen adjacent digits in the 1000-digit number that have the greates
 the value of this product?
 '''
 
-from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
 
 def largest_product_in_a_series(series, digits):
@@ -42,7 +42,10 @@ def largest_product_in_a_series(series, digits):
         product = max(product, current_product)
     return product
 
-if __name__ == '__main__':
+def answer():
     with open('assets/problem8/series.txt') as file:
         series = file.readline()
-        print_answer_and_elapsed_time(partial(largest_product_in_a_series, series = series, digits = 13))
+        return largest_product_in_a_series(series, 13)
+
+if __name__ == '__main__':
+    print_answer_and_elapsed_time(answer)

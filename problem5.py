@@ -34,3 +34,11 @@ Find prime factorizations of numbers from 2 to 20
 Lowest common multiple is the product of the prime factors with the largest powers in the list above:
 2**4 * 3**2 * 5 * 7 * 11 * 13 * 17 * 19 = 232792560
 '''
+
+from helpers.runtime import print_answer_and_elapsed_time
+
+def answer():
+    return 232792560
+
+if __name__ == '__main__':
+    print_answer_and_elapsed_time(answer)

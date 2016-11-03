@@ -1,3 +1,4 @@
+#coding=utf-8
 '''
 Problem 4 - Largest Palindrome Product
 
@@ -9,7 +10,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
-from helpers.string import is_palindrome
+from helpers.strings import is_palindrome
 
 def largest_palindrome_product(minimum, maximum):
     return max([n * m
@@ -17,5 +18,7 @@ def largest_palindrome_product(minimum, maximum):
                 for m in range(n, maximum)
                 if is_palindrome(str(n * m))])
 
+answer = partial(largest_palindrome_product, minimum = 100, maximum = 1000)
+
 if __name__ == '__main__':
-    print_answer_and_elapsed_time(partial(largest_palindrome_product, minimum = 100, maximum = 1000))
+    print_answer_and_elapsed_time(answer)

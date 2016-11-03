@@ -17,18 +17,19 @@ that cannot be expressed as the sum of two abundant numbers is less than this li
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 '''
 
-from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
-from helpers.math import divisors
+from helpers.numbers import divisors
 
 def is_abundant(number):
     return sum([n for n in divisors(number) if n < number]) > number
 
-def nonabundant_sums():
+def sum_nonabundant_sums():
     maximum = 28123
     abundant_numbers = frozenset([n for n in range(maximum) if is_abundant(n)])
     abundant_sums = frozenset([x + y for x in abundant_numbers for y in abundant_numbers])
     return sum([n for n in range(maximum) if n not in abundant_sums])
 
+answer = sum_nonabundant_sums
+
 if __name__ == '__main__':
-    print_answer_and_elapsed_time(nonabundant_sums)
+    print_answer_and_elapsed_time(answer)

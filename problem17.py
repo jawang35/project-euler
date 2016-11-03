@@ -77,5 +77,7 @@ def number_letter_counts(maximum):
             sum += ones[str(copy)]
     return sum
 
+answer = partial(number_letter_counts, maximum = 1000)
+
 if __name__ == '__main__':
-    print_answer_and_elapsed_time(partial(number_letter_counts, maximum = 1000))
+    print_answer_and_elapsed_time(answer)

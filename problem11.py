@@ -1,3 +1,4 @@
+#coding=utf-8
 '''
 Problem 11 - Largest Product in a Grid
 
@@ -29,7 +30,6 @@ The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
 What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
 '''
 
-from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
 
 def largest_product_in_a_grid(grid):
@@ -57,8 +57,11 @@ def largest_product_in_a_grid(grid):
 
     return largest_product
 
-if __name__ == '__main__':
+def answer():
     with open('assets/problem11/grid.txt') as file:
         parse = lambda line: [int(n) for n in line.split(' ')]
         grid = [parse(line) for line in file]
-        print_answer_and_elapsed_time(partial(largest_product_in_a_grid, grid))
+        return largest_product_in_a_grid(grid)
+
+if __name__ == '__main__':
+        print_answer_and_elapsed_time(answer)

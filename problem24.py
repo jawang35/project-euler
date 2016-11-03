@@ -14,7 +14,7 @@ from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
 from math import factorial
 
-def lexicographic_permutations(digits, permutation):
+def nth_lexicographic_permutations(digits, permutation):
     sorted_digits = sorted(digits)
     result = ''
     permutations_remaining = permutation - 1
@@ -26,7 +26,7 @@ def lexicographic_permutations(digits, permutation):
         permutations_remaining -= permutations_at_digit * digit_to_append
     return result
 
-if __name__ == "__main__":
-    digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    permutation = 1000000
-    print_answer_and_elapsed_time(partial(lexicographic_permutations, digits, permutation))
+answer = partial(nth_lexicographic_permutations, digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], permutation = 1000000)
+
+if __name__ == '__main__':
+    print_answer_and_elapsed_time(answer)

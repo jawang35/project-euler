@@ -13,7 +13,7 @@ the sum of the even-valued terms.
 from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
 
-def even_fibonacci_numbers(maximum):
+def sum_even_fibonacci_numbers(maximum):
     n1 = 1
     n2 = 1
     sum = 0
@@ -23,5 +23,7 @@ def even_fibonacci_numbers(maximum):
         n1, n2 = n2, n1 + n2
     return sum
 
+answer = partial(sum_even_fibonacci_numbers, maximum = 4000000)
+
 if __name__ == '__main__':
-    print_answer_and_elapsed_time(partial(even_fibonacci_numbers, maximum = 4000000))
+    print_answer_and_elapsed_time(answer)

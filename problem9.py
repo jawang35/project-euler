@@ -15,7 +15,7 @@ import math
 from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
 
-def special_pythagorean_triplet(sum):
+def product_special_pythagorean_triplet(sum):
     numbers_to_sum = range(1, sum)
     for a in numbers_to_sum:
         for b in numbers_to_sum:
@@ -24,5 +24,7 @@ def special_pythagorean_triplet(sum):
                 return int(a * b * c)
     return 0
 
+answer = partial(product_special_pythagorean_triplet, 1000)
+
 if __name__ == '__main__':
-    print_answer_and_elapsed_time(partial(special_pythagorean_triplet, 1000))
+    print_answer_and_elapsed_time(answer)

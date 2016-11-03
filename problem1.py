@@ -22,12 +22,14 @@ Use the formula 1 + 2 + ... + n = n * (n + 1) / 2
 from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
 
-def multiples_of_3_and_5(maximum):
+def sum_multiples_of_3_and_5(maximum):
     sum = 0
     for n in range(maximum):
         if n % 3 == 0 or n % 5 == 0:
             sum += n
     return sum
 
+answer = partial(sum_multiples_of_3_and_5, maximum = 1000)
+
 if __name__ == '__main__':
-    print_answer_and_elapsed_time(partial(multiples_of_3_and_5, maximum = 1000))
+    print_answer_and_elapsed_time(answer)

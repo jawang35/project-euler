@@ -37,7 +37,7 @@ def recurring_cycle_length(denominator):
         return 0
     return decimal - digits[digit]
 
-def reciprocal_cycles(maximum):
+def longest_reciprocal_cycles(maximum):
     cycle_lengths = [0] * maximum
     for denominator in range(2, maximum):
         cycle_lengths[denominator] = recurring_cycle_length(denominator)
@@ -49,5 +49,7 @@ def reciprocal_cycles(maximum):
             longest_cycle_denominator = denominator
     return longest_cycle_denominator
 
+answer = partial(longest_reciprocal_cycles, maximum = 1000)
+
 if __name__ == '__main__':
-    print_answer_and_elapsed_time(partial(reciprocal_cycles, maximum = 1000))
+    print_answer_and_elapsed_time(answer)

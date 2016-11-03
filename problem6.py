@@ -1,3 +1,4 @@
+#coding=utf-8
 '''
 Problem 6 - Sum Square Difference
 
@@ -28,5 +29,7 @@ def sum_square_difference(number):
                 sum += n * m
     return sum
 
+answer = partial(sum_square_difference, number = 100)
+
 if __name__ == '__main__':
-    print_answer_and_elapsed_time(partial(sum_square_difference, number = 100))
+    print_answer_and_elapsed_time(answer)

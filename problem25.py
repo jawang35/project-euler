@@ -1,3 +1,4 @@
+#coding=utf-8
 '''
 Problem 25 - 1000-digit Fibonacci Number
 
@@ -26,7 +27,7 @@ What is the index of the first term in the Fibonacci sequence to contain 1000 di
 from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
 
-def fibonacci_number(digits):
+def fibonacci_number_of_size(digits):
     f1 = 1
     f2 = 1
     index = 2
@@ -35,5 +36,7 @@ def fibonacci_number(digits):
         index += 1
     return index
 
-if __name__ == "__main__":
-    print_answer_and_elapsed_time(partial(fibonacci_number, digits = 1000))
+answer = partial(fibonacci_number_of_size, digits = 1000)
+
+if __name__ == '__main__':
+    print_answer_and_elapsed_time(answer)

@@ -21,11 +21,13 @@ def double_number_string(number_string):
         result_list.append(str(carry))
     return ''.join(reversed(result_list))
 
-def power_digit_sum(power):
+def power_of_two_digit_sum(power):
     power_of_two = '1'
     for n in range(1, power + 1):
         power_of_two = double_number_string(power_of_two)
     return sum([int(digit) for digit in list(power_of_two)])
 
+answer = partial(power_of_two_digit_sum, power = 1000)
+
 if __name__ == '__main__':
-    print_answer_and_elapsed_time(partial(power_digit_sum, power = 1000))
+    print_answer_and_elapsed_time(answer)

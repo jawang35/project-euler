@@ -106,7 +106,6 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 '''
 
 from math import log
-from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
 
 def large_sum(numbers, leading_digits):
@@ -114,7 +113,10 @@ def large_sum(numbers, leading_digits):
     leading_digits_of_sum = sum([int(str(n)[0:digits_to_consider]) for n in numbers])
     return int(str(leading_digits_of_sum)[0:leading_digits])
 
-if __name__ == '__main__':
+def answer():
     with open('assets/problem13/numbers.txt') as file:
         numbers = [int(line) for line in file]
-        print_answer_and_elapsed_time(partial(large_sum, numbers, leading_digits = 10))
+        return large_sum(numbers, 10)
+
+if __name__ == '__main__':
+        print_answer_and_elapsed_time(answer)
