@@ -14,6 +14,8 @@ def sieve_of_eratosthenes(max):
     return sieve
 
 def is_prime(number):
+    if number < 2:
+        return False
     sqrt_of_number = int(sqrt(number)) + 1
     for n in range(2, sqrt_of_number):
         if number % n == 0:
