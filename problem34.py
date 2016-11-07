@@ -15,7 +15,7 @@ def sum_digit_factorial(number):
     return sum([factorial(int(digit)) for digit in str(number)])
 
 def digit_factorials():
-    maximum = 50000 # 10000000 is an analytical upper bound 9999999 > 7 * 9!
+    maximum = 50000 # 10000000 is an analytical upper bound since 9999999 > 7 * 9!
     return [n for n in range(10, maximum) if sum_digit_factorial(n) == n]
 
 def answer():
