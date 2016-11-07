@@ -14,14 +14,11 @@ from helpers.numbers import sieve_of_eratosthenes
 
 def circular_primes(maximum):
     sieve = sieve_of_eratosthenes(maximum)
-    result = set()
-    for n, is_prime in enumerate(sieve):
-        if n == maximum:
-            break
-        if not is_prime or n in result:
+    result = set([2])
+    for number in range(3, maximum, 2):
+        if not sieve[number] or number in result:
             continue
-
-        number_string = str(n)
+        number_string = str(number)
         rotations = [int(number_string[i:] + number_string[:i])
                      for i in range(len(number_string))]
         if len([p for p in rotations if sieve[p]]) == len(rotations):
