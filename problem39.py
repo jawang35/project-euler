@@ -15,12 +15,12 @@ from math import ceil
 from helpers.runtime import print_answer_and_elapsed_time
 
 def right_triangle_sides(perimeter):
-    result = []
+    result = set()
     for a in range(1, ceil(perimeter / 3)):
         b = int((perimeter**2 - 2 * perimeter * a) / (2 * perimeter - 2 * a))
         c = perimeter - a - b
         if a**2 + b**2 == c**2:
-            result.append((a, b, c))
+            result.add((min(a, b), max(a, b), c))
     return result
 
 def most_integer_right_triangles(maximum):
