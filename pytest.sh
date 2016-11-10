@@ -1,1 +1,1 @@
-PYTHONPATH=$(pwd) py.test -v --color=yes --durations=0
+PYTHONPATH=$(pwd) py.test -v --color=yes --durations=20
