@@ -21,11 +21,14 @@ algorithm to solve it. ;o)
 '''
 
 from functools import partial
-from helpers import runtime
+from helpers.runtime import print_answer_and_elapsed_time
 from problem18 import maximum_path_sum
 
-if __name__ == '__main__':
+def answer():
     with open('assets/problem67/triangle.txt') as file:
         parse = lambda row: [int(n) for n in row.split(' ')]
         triangle = [parse(row) for row in file]
-        runtime.print_answer_and_elapsed_time(partial(maximum_path_sum, triangle))
+        return maximum_path_sum(triangle)
+
+if __name__ == '__main__':
+    print_answer_and_elapsed_time(answer)
