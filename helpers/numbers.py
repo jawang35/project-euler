@@ -33,8 +33,8 @@ def divisors(number):
     result = set([1])
     prime_divisors_list = prime_divisors(number)
     for n in range(1, len(prime_divisors_list) + 1):
-        for combination in combinations(prime_divisors_list, n):
-            result.add(product(combination))
+        result.update([product(combination)
+                       for combination in combinations(prime_divisors_list, n)])
     return result
 
 def product(numbers):

@@ -20,7 +20,7 @@ from functools import partial
 from helpers.runtime import print_answer_and_elapsed_time
 
 def distinct_powers(maximum):
-    return len(set([a**b for a in range(2, maximum + 1) for b in range(2, maximum + 1)]))
+    return len(frozenset([a**b for a in range(2, maximum + 1) for b in range(2, maximum + 1)]))
 
 answer = partial(distinct_powers, maximum = 100)
 

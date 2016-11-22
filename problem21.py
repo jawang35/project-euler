@@ -25,8 +25,7 @@ def sum_amicable_numbers(maximum):
         if n not in amicable_number_set:
             m = sum_of_proper_divisors(n)
             if m != n and sum_of_proper_divisors(m) == n:
-                amicable_number_set.add(n)
-                amicable_number_set.add(m)
+                amicable_number_set.update([n, m])
     return sum([number for number in amicable_number_set if number < maximum])
 
 answer = partial(sum_amicable_numbers, maximum = 10000)

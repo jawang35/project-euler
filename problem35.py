@@ -22,8 +22,7 @@ def circular_primes(maximum):
         rotations = [int(number_string[i:] + number_string[:i])
                      for i in range(len(number_string))]
         if len([p for p in rotations if sieve[p]]) == len(rotations):
-            for prime in [p for p in rotations if p < maximum]:
-                result.add(prime)
+            result.update([p for p in rotations if p < maximum])
     return result
 
 def answer():
