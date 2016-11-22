@@ -24,7 +24,7 @@ def next_hexagonal_pentagonal_triangular_number(previous_hexagonal_n):
         if is_pentagonal(current_number) and is_triangular(current_number):
             return current_number
 
-answer = partial(next_hexagonal_pentagonal_triangular_number, 143)
+answer = partial(next_hexagonal_pentagonal_triangular_number, previous_hexagonal_n = 143)
 
 if __name__ == '__main__':
     print_answer_and_elapsed_time(answer)
