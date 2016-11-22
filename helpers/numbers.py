@@ -39,3 +39,11 @@ def divisors(number):
 
 def product(numbers):
     return reduce(mul, numbers, 1)
+
+def is_pentagonal(number):
+    n = (1 + sqrt(1 - 4 * 3 * (-2) * number)) / 6
+    return n.is_integer()
+
+def is_triangular(number):
+    n = int(sqrt(2 * number))
+    return n * (n + 1) / 2 == number

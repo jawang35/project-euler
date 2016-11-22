@@ -16,11 +16,8 @@ two-thousand common English words, how many are triangle words?
 '''
 
 from math import sqrt
+from helpers.numbers import is_triangular
 from helpers.runtime import print_answer_and_elapsed_time
-
-def is_triangle_number(number):
-    n = int(sqrt(2 * number))
-    return n * (n + 1) / 2 == number
 
 def coded_number(word):
     offset = (ord('A') - 1) * len(word)
@@ -30,7 +27,7 @@ def coded_number(word):
 def count_triangle_words(words):
     result = 0
     for word in words:
-        if is_triangle_number(coded_number(word)):
+        if is_triangular(coded_number(word)):
             result += 1
     return result
 

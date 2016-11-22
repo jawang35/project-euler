@@ -13,11 +13,8 @@ and D = |P_k − P_j| is minimised; what is the value of D?
 '''
 
 from math import sqrt
+from helpers.numbers import is_pentagonal
 from helpers.runtime import print_answer_and_elapsed_time
-
-def is_pentagonal(number):
-    n = (1 + sqrt(1 - 4 * 3 * (-2) * number)) / 6
-    return n.is_integer()
 
 def pentagonal_number_pair():
     n = 0
