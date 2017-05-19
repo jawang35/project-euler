@@ -18,17 +18,17 @@ from helpers.runtime import print_answer_and_elapsed_time
 def prime_permutations(number_of_digits):
     minimum = 10**(number_of_digits - 1)
     maximum = 10 * minimum
-    sieve = sieve_of_eratosthenes(maximum)
+    primes = sieve_of_eratosthenes(maximum)
     permutation_list = []
     permutations_accounted_for = set()
-    for prime in [p for p in range(minimum, maximum) if sieve[p]]:
+    for prime in [p for p in range(minimum, maximum) if p in primes]:
         if prime in permutations_accounted_for:
             continue
         digit_permutations = set([int(''.join(permutation))
                                   for permutation in permutations(str(prime), number_of_digits)])
         prime_digit_permutations = [p
                                     for p in digit_permutations
-                                    if sieve[p] and prime <= p < maximum]
+                                    if p in primes and prime <= p < maximum]
         permutations_accounted_for.update(prime_digit_permutations)
         permutation_list.append(sorted(prime_digit_permutations))
     return [permutation for permutation in permutation_list if len(permutation) > 2]

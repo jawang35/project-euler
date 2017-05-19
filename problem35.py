@@ -13,15 +13,15 @@ from helpers.runtime import print_answer_and_elapsed_time
 from helpers.numbers import sieve_of_eratosthenes
 
 def circular_primes(maximum):
-    sieve = sieve_of_eratosthenes(maximum)
+    primes = sieve_of_eratosthenes(maximum)
     result = set([2])
     for number in range(3, maximum, 2):
-        if not sieve[number] or number in result:
+        if number not in primes or number in result:
             continue
         number_string = str(number)
         rotations = [int(number_string[i:] + number_string[:i])
                      for i in range(len(number_string))]
-        if len([p for p in rotations if sieve[p]]) == len(rotations):
+        if len([p for p in rotations if p in primes]) == len(rotations):
             result.update([p for p in rotations if p < maximum])
     return result
 

@@ -11,12 +11,7 @@ from helpers.runtime import print_answer_and_elapsed_time
 from helpers.numbers import sieve_of_eratosthenes
 
 def summation_of_primes(maximum):
-    sieve = sieve_of_eratosthenes(maximum)
-    sum = 0
-    for n, is_prime in enumerate(sieve):
-        if is_prime:
-            sum += n
-    return sum
+    return sum(sieve_of_eratosthenes(maximum))
 
 answer = partial(summation_of_primes, maximum = 2000000)
 

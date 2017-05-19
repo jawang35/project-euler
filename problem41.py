@@ -11,14 +11,13 @@ from helpers.runtime import print_answer_and_elapsed_time
 from helpers.numbers import sieve_of_eratosthenes
 
 def largest_pandigital_prime():
-    maximum = 7654321 # 8- and 9-digit primes are divisible by 3
-    sieve = sieve_of_eratosthenes(maximum)
-    for number, is_prime in reversed(list(enumerate(sieve))):
-        if is_prime:
-            number_string = ''.join(sorted(str(number)))
-            number_length = len(number_string)
-            if ''.join(sorted(str(number))) == '1234567'[:number_length]:
-                return number
+    maximum = 7654321 # 8- and 9-digit pandigital primes are divisible by 3
+    primes = sieve_of_eratosthenes(maximum)
+    for number in sorted(primes, reverse=True):
+        number_string = ''.join(sorted(str(number)))
+        number_length = len(number_string)
+        if ''.join(sorted(str(number))) == '1234567'[:number_length]:
+            return number
 
 answer = largest_pandigital_prime
 

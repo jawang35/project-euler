@@ -3,15 +3,12 @@ from functools import reduce
 from itertools import combinations
 from operator import mul
 
-def sieve_of_eratosthenes(max):
-    sieve = [True] * max
-    sieve[0] = False
-    sieve[1] = False
-    for n in range(2, max):
-        if sieve[n]:
-            for m in range(2 * n, max, n):
-                sieve[m] = False
-    return sieve
+def sieve_of_eratosthenes(maximum):
+    primes = set(range(2, maximum))
+    for n in range(2, maximum):
+        if n in primes:
+            primes.difference_update(range(2 * n, maximum, n))
+    return primes
 
 def is_prime(number):
     if number < 2:
