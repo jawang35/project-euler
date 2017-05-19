@@ -1,4 +1,4 @@
-from problem6 import answer
+from lib.problem6 import answer
 
 def test_problem6():
     assert answer() == 25164150
