@@ -107,6 +107,7 @@ numbers.
 '''
 
 from math import log
+from lib.config import assets_path
 from lib.helpers.runtime import print_answer_and_elapsed_time
 
 
@@ -118,7 +119,7 @@ def large_sum(numbers, leading_digits):
 
 
 def answer():
-    with open('assets/problem13/numbers.txt') as file:
+    with open('%s/problem13/numbers.txt' % assets_path) as file:
         numbers = [int(line) for line in file]
         return large_sum(numbers, 10)
 

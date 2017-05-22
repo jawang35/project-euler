@@ -35,6 +35,7 @@ containing one-hundred rows; it cannot be solved by brute force, and requires a
 clever method! ;o)
 '''
 
+from lib.config import assets_path
 from lib.helpers.runtime import print_answer_and_elapsed_time
 
 
@@ -50,7 +51,7 @@ def maximum_path_sum(triangle):
 
 
 def answer():
-    with open('assets/problem18/triangle.txt') as file:
+    with open('%s/problem18/triangle.txt' % assets_path) as file:
         def parse(row): return [int(n) for n in row.split(' ')]
         triangle = [parse(row) for row in file]
         return maximum_path_sum(triangle)

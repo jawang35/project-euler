@@ -32,6 +32,7 @@ What is the greatest product of four adjacent numbers in the same direction
 (up, down, left, right, or diagonally) in the 20×20 grid?
 '''
 
+from lib.config import assets_path
 from lib.helpers.runtime import print_answer_and_elapsed_time
 
 
@@ -74,7 +75,7 @@ def largest_product_in_a_grid(grid):
 
 
 def answer():
-    with open('assets/problem11/grid.txt') as file:
+    with open('%s/problem11/grid.txt' % assets_path) as file:
         def parse(line): return [int(n) for n in line.split(' ')]
         grid = [parse(line) for line in file]
         return largest_product_in_a_grid(grid)

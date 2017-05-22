@@ -15,6 +15,7 @@ obtain a score of 938 × 53 = 49714.
 What is the total of all the name scores in the file?
 '''
 
+from lib.config import assets_path
 from lib.helpers.runtime import print_answer_and_elapsed_time
 
 
@@ -29,7 +30,7 @@ def total_name_scores(names):
 
 
 def answer():
-    with open('assets/problem22/names.txt') as file:
+    with open('%s/problem22/names.txt' % assets_path) as file:
         names = sorted(file.read().replace('"', '').split(','))
         return total_name_scores(names)
 

@@ -31,6 +31,7 @@ Find the thirteen adjacent digits in the 1000-digit number that have the
 greatest product. What is the value of this product?
 '''
 
+from lib.config import assets_path
 from lib.helpers.runtime import print_answer_and_elapsed_time
 
 
@@ -46,7 +47,7 @@ def largest_product_in_a_series(series, digits):
 
 
 def answer():
-    with open('assets/problem8/series.txt') as file:
+    with open('%s/problem8/series.txt' % assets_path) as file:
         series = file.readline()
         return largest_product_in_a_series(series, 13)
 

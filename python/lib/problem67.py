@@ -23,12 +23,13 @@ billion years to check them all. There is an efficient algorithm to solve it.
 '''
 
 from functools import partial
+from lib.config import assets_path
 from lib.helpers.runtime import print_answer_and_elapsed_time
 from lib.problem18 import maximum_path_sum
 
 
 def answer():
-    with open('assets/problem67/triangle.txt') as file:
+    with open('%s/problem67/triangle.txt' % assets_path) as file:
         def parse(row): return [int(n) for n in row.split(' ')]
         triangle = [parse(row) for row in file]
         return maximum_path_sum(triangle)

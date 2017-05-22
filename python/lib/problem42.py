@@ -17,6 +17,7 @@ words?
 '''
 
 from math import sqrt
+from lib.config import assets_path
 from lib.helpers.numbers import is_triangular
 from lib.helpers.runtime import print_answer_and_elapsed_time
 
@@ -36,7 +37,7 @@ def count_triangle_words(words):
 
 
 def answer():
-    with open('assets/problem42/words.txt') as file:
+    with open('%s/problem42/words.txt' % assets_path) as file:
         words = sorted(file.read().replace('"', '').split(','))
         return count_triangle_words(words)
 
