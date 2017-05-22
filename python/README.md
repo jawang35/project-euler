@@ -1,6 +1,6 @@
 # Python
 
-Solutions written in Python.
+Solutions written in Python 3.6.
 
 ## Setup
 
