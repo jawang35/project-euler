@@ -1,8 +1,8 @@
 '''
 Problem 28 - Number Spiral Diagonals
 
-Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is
-formed as follows:
+Starting with the number 1 and moving to the right in a clockwise direction a 5
+by 5 spiral is formed as follows:
 
 21 22 23 24 25
 20  7  8  9 10
@@ -21,11 +21,13 @@ It can be verified that the sum of the numbers on the diagonals is 101.
 37 36 35 34 33 32 31
 
 
-What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
+What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed
+in the same way?
 '''
 
 from functools import partial
 from lib.helpers.runtime import print_answer_and_elapsed_time
+
 
 def sum_spiral_diagonals(size):
     assert size % 2 == 1
@@ -39,7 +41,7 @@ def sum_spiral_diagonals(size):
         radius += 1
     return sum
 
-answer = partial(sum_spiral_diagonals, size = 1001)
+answer = partial(sum_spiral_diagonals, size=1001)
 
 if __name__ == '__main__':
     print_answer_and_elapsed_time(answer)

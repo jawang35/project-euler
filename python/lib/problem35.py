@@ -1,16 +1,18 @@
 '''
 Problem 35 - Circular Primes
 
-The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719,
-are themselves prime.
+The number, 197, is called a circular prime because all rotations of the
+digits: 197, 971, and 719, are themselves prime.
 
-There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
+There are thirteen such primes below 100:
+2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
 
 How many circular primes are there below one million?
 '''
 
 from lib.helpers.runtime import print_answer_and_elapsed_time
 from lib.helpers.numbers import sieve_of_eratosthenes
+
 
 def circular_primes(maximum):
     primes = sieve_of_eratosthenes(maximum)
@@ -24,6 +26,7 @@ def circular_primes(maximum):
         if len([p for p in rotations if p in primes]) == len(rotations):
             result.update([p for p in rotations if p < maximum])
     return result
+
 
 def answer():
     return len(circular_primes(1000000))

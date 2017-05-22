@@ -1,9 +1,9 @@
-#coding=utf-8
+# coding=utf-8
 '''
 Problem 46 - Goldbach's Other Conjecture
 
-It was proposed by Christian Goldbach that every odd composite number can be written as the sum of a
-prime and twice a square.
+It was proposed by Christian Goldbach that every odd composite number can be
+written as the sum of a prime and twice a square.
 
 9 = 7 + 2×1**2
 15 = 7 + 2×2**2
@@ -14,12 +14,14 @@ prime and twice a square.
 
 It turns out that the conjecture was false.
 
-What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?
+What is the smallest odd composite that cannot be written as the sum of a prime
+and twice a square?
 '''
 
 from math import sqrt
 from lib.helpers.numbers import is_prime
 from lib.helpers.runtime import print_answer_and_elapsed_time
+
 
 def smallest_non_goldbach_number():
     primes = [2]

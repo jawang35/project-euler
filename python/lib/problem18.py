@@ -1,8 +1,8 @@
 '''
 Problem 18 - Maximum Path Sum I
 
-By starting at the top of the triangle below and moving to adjacent numbers on the row below, the
-maximum total from top to bottom is 23.
+By starting at the top of the triangle below and moving to adjacent numbers on
+the row below, the maximum total from top to bottom is 23.
 
    3
   7 4
@@ -29,12 +29,14 @@ Find the maximum total from top to bottom of the triangle below:
  63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 
-NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route.
-However, Problem 67, is the same challenge with a triangle containing one-hundred rows; it cannot be
-solved by brute force, and requires a clever method! ;o)
+NOTE: As there are only 16384 routes, it is possible to solve this problem by
+trying every route. However, Problem 67, is the same challenge with a triangle
+containing one-hundred rows; it cannot be solved by brute force, and requires a
+clever method! ;o)
 '''
 
 from lib.helpers.runtime import print_answer_and_elapsed_time
+
 
 def maximum_path_sum(triangle):
     sum_triangle = [[number for number in row] for row in triangle]
@@ -42,12 +44,14 @@ def maximum_path_sum(triangle):
     for i in range(triangle_height - 2, -1, -1):
         row_length = len(sum_triangle[i])
         for j in range(row_length):
-            sum_triangle[i][j] += max(sum_triangle[i + 1][j], sum_triangle[i + 1][j + 1])
+            sum_triangle[i][j] += max(sum_triangle[i + 1][j],
+                                      sum_triangle[i + 1][j + 1])
     return sum_triangle[0][0]
+
 
 def answer():
     with open('assets/problem18/triangle.txt') as file:
-        parse = lambda row: [int(n) for n in row.split(' ')]
+        def parse(row): return [int(n) for n in row.split(' ')]
         triangle = [parse(row) for row in file]
         return maximum_path_sum(triangle)
 

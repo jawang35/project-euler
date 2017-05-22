@@ -10,10 +10,11 @@ from functools import partial
 from lib.helpers.runtime import print_answer_and_elapsed_time
 from lib.helpers.numbers import prime_divisors
 
+
 def largest_prime_factor(number):
     return max(prime_divisors(number))
 
-answer = partial(largest_prime_factor, number = 600851475143)
+answer = partial(largest_prime_factor, number=600851475143)
 
 if __name__ == '__main__':
     print_answer_and_elapsed_time(answer)

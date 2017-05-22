@@ -1,18 +1,20 @@
 '''
 Problem 37 - Truncatable Primes
 
-The number 3797 has an interesting property. Being prime itself, it is possible to continuously
-remove digits from left to right, and remain prime at each stage: 3797, 797, 97, and 7. Similarly
-we can work from right to left: 3797, 379, 37, and 3.
+The number 3797 has an interesting property. Being prime itself, it is possible
+to continuously remove digits from left to right, and remain prime at each
+stage: 3797, 797, 97, and 7. Similarly we can work from right to left:
+3797, 379, 37, and 3.
 
-Find the sum of the only eleven primes that are both truncatable from left to right and right to
-left.
+Find the sum of the only eleven primes that are both truncatable from left to
+right and right to left.
 
 NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 '''
 
 from lib.helpers.runtime import print_answer_and_elapsed_time
 from lib.helpers.numbers import is_prime
+
 
 def is_truncatable_prime(number):
     if not is_prime(number):
@@ -25,9 +27,11 @@ def is_truncatable_prime(number):
         return False
 
     for i in range(1, number_length):
-        if not is_prime(int(number_string[i:])) or not is_prime(int(number_string[:i])):
+        if (not is_prime(int(number_string[i:])) or
+                not is_prime(int(number_string[:i]))):
             return False
     return True
+
 
 def truncatable_primes():
     number = 11
@@ -37,6 +41,7 @@ def truncatable_primes():
             result.append(number)
         number += 2
     return result
+
 
 def answer():
     return sum(truncatable_primes())

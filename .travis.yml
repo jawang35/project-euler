@@ -1,4 +1,4 @@
 language: python
 python:
   - "3.5"
-script: cd python && make test
+script: cd python && make install && make lint && make test

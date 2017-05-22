@@ -15,6 +15,7 @@ import math
 from functools import partial
 from lib.helpers.runtime import print_answer_and_elapsed_time
 
+
 def product_special_pythagorean_triplet(sum):
     numbers_to_sum = range(1, sum)
     for a in numbers_to_sum:

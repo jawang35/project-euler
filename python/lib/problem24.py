@@ -1,18 +1,21 @@
 '''
 Problem 24 - Lexicographic Permutations
 
-A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of
-the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we
-call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:
+A permutation is an ordered arrangement of objects. For example, 3124 is one
+possible permutation of the digits 1, 2, 3 and 4. If all of the permutations
+are listed numerically or alphabetically, we call it lexicographic order. The
+lexicographic permutations of 0, 1 and 2 are:
 
 012   021   102   120   201   210
 
-What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
+What is the millionth lexicographic permutation of the digits
+0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
 '''
 
 from functools import partial
 from lib.helpers.runtime import print_answer_and_elapsed_time
 from math import factorial
+
 
 def nth_lexicographic_permutations(digits, permutation):
     sorted_digits = sorted(digits)
@@ -26,7 +29,9 @@ def nth_lexicographic_permutations(digits, permutation):
         permutations_remaining -= permutations_at_digit * digit_to_append
     return result
 
-answer = partial(nth_lexicographic_permutations, digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], permutation = 1000000)
+answer = partial(nth_lexicographic_permutations,
+                 digits=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                 permutation=1000000)
 
 if __name__ == '__main__':
     print_answer_and_elapsed_time(answer)

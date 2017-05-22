@@ -1,8 +1,8 @@
 '''
 Problem 31 - Coin Sums
 
-In England the currency is made up of pound, £, and pence, p, and there are eight coins in general
-circulation:
+In England the currency is made up of pound, £, and pence, p, and there are
+eight coins in general circulation:
 
 1p, 2p, 5p, 10p, 20p, 50p, £1 (100p) and £2 (200p).
 It is possible to make £2 in the following way:
@@ -15,6 +15,7 @@ How many different ways can £2 be made using any number of coins?
 
 from lib.helpers.runtime import print_answer_and_elapsed_time
 
+
 def combinations_of_coins(amount, coins):
     result = []
     if amount == 0:
@@ -25,7 +26,9 @@ def combinations_of_coins(amount, coins):
         if amount_remaining < 0:
             continue
 
-        combinations_for_remaining = combinations_of_coins(amount_remaining, [c for c in coins if c <= coin])
+        valid_coins = [c for c in coins if c <= coin]
+        combinations_for_remaining = combinations_of_coins(amount_remaining,
+                                                           valid_coins)
         if len(combinations_for_remaining) == 0:
             result.append([coin])
             continue
@@ -33,6 +36,7 @@ def combinations_of_coins(amount, coins):
         for combination in combinations_for_remaining:
             result.append([coin] + combination)
     return result
+
 
 def answer():
     coins = [1, 2, 5, 10, 20, 50, 100, 200]

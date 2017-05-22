@@ -1,7 +1,8 @@
 '''
 Problem 19 - Counting Sundays
 
-You are given the following information, but you may prefer to do some research for yourself.
+You are given the following information, but you may prefer to do some research
+for yourself.
 
 - 1 Jan 1900 was a Monday.
 - Thirty days has September,
@@ -10,10 +11,11 @@ You are given the following information, but you may prefer to do some research 
 - Saving February alone,
 - Which has twenty-eight, rain or shine.
 - And on leap years, twenty-nine.
-- A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
+- A leap year occurs on any year evenly divisible by 4, but not on a century
+  unless it is divisible by 400.
 
-How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec
-2000)?
+How many Sundays fell on the first of the month during the twentieth century
+(1 Jan 1901 to 31 Dec 2000)?
 '''
 
 from functools import partial
@@ -36,6 +38,7 @@ days_in_month = {
     12: 31,
 }
 
+
 def counting_sundays(start, end):
     sundays_on_first_of_month = 0
     current_day_of_week = day_of_week(start)
@@ -52,7 +55,9 @@ def counting_sundays(start, end):
                 sundays_on_first_of_month += 1
     return sundays_on_first_of_month
 
-answer = partial(counting_sundays, start = date(1901, 1, 1), end = date(2000, 12, 31))
+answer = partial(counting_sundays,
+                 start=date(1901, 1, 1),
+                 end=date(2000, 12, 31))
 
 if __name__ == '__main__':
     print_answer_and_elapsed_time(answer)

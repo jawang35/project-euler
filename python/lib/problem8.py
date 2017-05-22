@@ -1,8 +1,9 @@
-#coding=utf-8
+# coding=utf-8
 '''
 Problem 8 - Largest Product in a Series
 
-The four adjacent digits in the 1000-digit number that have the greatest product are
+The four adjacent digits in the 1000-digit number that have the greatest
+product are
 9 × 9 × 8 × 9 = 5832.
 
 73167176531330624919225119674426574742355349194934
@@ -26,11 +27,12 @@ The four adjacent digits in the 1000-digit number that have the greatest product
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450
 
-Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is
-the value of this product?
+Find the thirteen adjacent digits in the 1000-digit number that have the
+greatest product. What is the value of this product?
 '''
 
 from lib.helpers.runtime import print_answer_and_elapsed_time
+
 
 def largest_product_in_a_series(series, digits):
     product = 1
@@ -41,6 +43,7 @@ def largest_product_in_a_series(series, digits):
             current_product *= int(series_string[i + j])
         product = max(product, current_product)
     return product
+
 
 def answer():
     with open('assets/problem8/series.txt') as file:

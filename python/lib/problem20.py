@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 '''
 Problem 20 - Factorial Digit Sum
 
@@ -14,10 +14,11 @@ from functools import partial
 from lib.helpers.runtime import print_answer_and_elapsed_time
 from math import factorial
 
+
 def factorial_digit_sum(number):
     return sum([int(digit) for digit in str(factorial(number))])
 
-answer = partial(factorial_digit_sum, number = 100)
+answer = partial(factorial_digit_sum, number=100)
 
 if __name__ == '__main__':
     print_answer_and_elapsed_time(answer)

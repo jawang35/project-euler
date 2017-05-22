@@ -1,13 +1,13 @@
 '''
 Problem 5 - Smallest Multiple
 
-2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any
-remainder.
+2520 is the smallest number that can be divided by each of the numbers from 1
+to 10 without any remainder.
 
-What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
-'''
+What is the smallest positive number that is evenly divisible by all of the
+numbers from 1 to 20?
 
-'''
+--------------------------------------------------------------------------------
 Computed by Hand:
 
 Find prime factorizations of numbers from 2 to 20
@@ -31,11 +31,13 @@ Find prime factorizations of numbers from 2 to 20
 19 = 19
 20 = 2**2 * 5
 
-Lowest common multiple is the product of the prime factors with the largest powers in the list above:
+Lowest common multiple is the product of the prime factors with the largest
+powers in the list above:
 2**4 * 3**2 * 5 * 7 * 11 * 13 * 17 * 19 = 232792560
 '''
 
 from lib.helpers.runtime import print_answer_and_elapsed_time
+
 
 def answer():
     return 232792560

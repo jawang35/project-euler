@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 '''
 Problem 25 - 1000-digit Fibonacci Number
 
@@ -21,11 +21,13 @@ F11 = 89
 F12 = 144
 The 12th term, F12, is the first term to contain three digits.
 
-What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
+What is the index of the first term in the Fibonacci sequence to contain 1000
+digits?
 '''
 
 from functools import partial
 from lib.helpers.runtime import print_answer_and_elapsed_time
+
 
 def fibonacci_number_of_size(digits):
     f1 = 1
@@ -36,7 +38,7 @@ def fibonacci_number_of_size(digits):
         index += 1
     return index
 
-answer = partial(fibonacci_number_of_size, digits = 1000)
+answer = partial(fibonacci_number_of_size, digits=1000)
 
 if __name__ == '__main__':
     print_answer_and_elapsed_time(answer)

@@ -1,8 +1,9 @@
-#coding=utf-8
+# coding=utf-8
 '''
 Problem 11 - Largest Product in a Grid
 
-In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
+In the 20×20 grid below, four numbers along a diagonal line have been marked in
+red.
 
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
@@ -27,39 +28,54 @@ In the 20×20 grid below, four numbers along a diagonal line have been marked in
 
 The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
 
-What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+What is the greatest product of four adjacent numbers in the same direction
+(up, down, left, right, or diagonally) in the 20×20 grid?
 '''
 
 from lib.helpers.runtime import print_answer_and_elapsed_time
+
 
 def largest_product_in_a_grid(grid):
     largest_product = 1
 
     for i in range(len(grid)):
         for j in range(len(grid[i]) - 3):
-            current_product = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3]
+            current_product = (grid[i][j] *
+                               grid[i][j + 1] *
+                               grid[i][j + 2] *
+                               grid[i][j + 3])
             largest_product = max(largest_product, current_product)
 
     for i in range(len(grid) - 3):
         for j in range(len(grid[i])):
-            current_product = grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * grid[i + 3][j]
+            current_product = (grid[i][j] *
+                               grid[i + 1][j] *
+                               grid[i + 2][j] *
+                               grid[i + 3][j])
             largest_product = max(largest_product, current_product)
 
     for i in range(len(grid) - 3):
         for j in range(len(grid[i]) - 3):
-            current_product = grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3]
+            current_product = (grid[i][j] *
+                               grid[i + 1][j + 1] *
+                               grid[i + 2][j + 2] *
+                               grid[i + 3][j + 3])
             largest_product = max(largest_product, current_product)
 
     for i in range(3, len(grid)):
         for j in range(len(grid[i]) - 3):
-            current_product = grid[i][j] * grid[i - 1][j + 1] * grid[i - 2][j + 2] * grid[i - 3][j + 3]
+            current_product = (grid[i][j] *
+                               grid[i - 1][j + 1] *
+                               grid[i - 2][j + 2] *
+                               grid[i - 3][j + 3])
             largest_product = max(largest_product, current_product)
 
     return largest_product
 
+
 def answer():
     with open('assets/problem11/grid.txt') as file:
-        parse = lambda line: [int(n) for n in line.split(' ')]
+        def parse(line): return [int(n) for n in line.split(' ')]
         grid = [parse(line) for line in file]
         return largest_product_in_a_grid(grid)
 
