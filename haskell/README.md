@@ -5,11 +5,11 @@ Solutions written in Haskell2010.
 ## Setup
 
 ```sh
-stack setup
+make install
 ```
 
 ## Testing
 
 ```sh
-stack test
+make test
 ```

@@ -8,9 +8,8 @@ Solutions written in Python 3.6.
 make install
 ```
 
-## Linting and Testing
+## Testing
 
 ```sh
-make lint
 make test
 ```

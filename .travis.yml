@@ -1,10 +1,12 @@
+sudo: required
+
 language: python
 
 python:
   - "3.5"
 
-install:
-  - python3 python/setup.py install
-  - pip3 install -r python/requirements.txt
+env:
+  - TEST_DIR=python
+  - TEST_DIR=haskell
 
-script: cd python && make lint && make test
+script: cd $TEST_DIR && make install && make test
