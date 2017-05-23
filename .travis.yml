@@ -1,4 +1,10 @@
 language: python
+
 python:
   - "3.5"
-script: cd python && make install && make lint && make test
+
+install:
+  - python3 python/setup.py install
+  - pip3 install -r python/requirements.txt
+
+script: cd python && make lint && make test

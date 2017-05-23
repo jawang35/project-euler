@@ -1,7 +1,7 @@
 PWD=$(shell pwd)
 
 install:
-	python setup.py install && pip install -r requirements.txt
+	python3 setup.py install && pip3 install -r requirements.txt
 
 lint:
 	pep8 .
