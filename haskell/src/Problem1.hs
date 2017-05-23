@@ -15,7 +15,14 @@ Use the formula 1 + 2 + ... + n = n * (n + 1) / 2
 = 233168<Paste>
 -}
 
+module Problem1
+( sumMultiplesOf3And5
+, answer
+) where
+
 sumMultiplesOf3And5 :: Integer -> Integer
 sumMultiplesOf3And5 maximum =
     sum $ filter multipleOf3Or5 $ init [1..maximum]
     where multipleOf3Or5 number = number `mod` 3 == 0 || number `mod` 5 == 0
+
+answer = sumMultiplesOf3And5 1000

@@ -10,8 +10,15 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 the sum of the even-valued terms.
 -}
 
+module Problem2
+( sumEvenFibonacciNumbers
+, answer
+) where
+
 sumEvenFibonacciNumbers :: Integer -> Integer
 sumEvenFibonacciNumbers maximum =
     sum $ takeWhile (\n -> n <= maximum) $ filter even fibs
     where fibs = 1 : 2 : zipWith (+) fibs (tail fibs)
           even number = number `mod` 2 == 0
+
+answer = sumEvenFibonacciNumbers 4000000

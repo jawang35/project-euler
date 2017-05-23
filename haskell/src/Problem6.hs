@@ -16,9 +16,16 @@ Find the difference between the sum of the squares of the first one hundred
 natural numbers and the square of the sum.
 -}
 
+module Problem6
+( sumSquareDifference
+, answer
+) where
+
 sumSquareDifference :: Integer -> Integer
 sumSquareDifference maximum =
     squareOfSums - sumOfSquares
     where naturalNumbers = [1..maximum]
           squareOfSums = (sum naturalNumbers) ^ 2
           sumOfSquares = sum $ map (^2) naturalNumbers
+
+answer = sumSquareDifference 100
