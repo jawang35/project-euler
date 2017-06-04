@@ -5,6 +5,9 @@ language: python
 python:
   - "3.5"
 
+before_install:
+  - curl -sSL https://get.haskellstack.org/ | sh 
+
 env:
   - TEST_DIR=python
   - TEST_DIR=haskell
