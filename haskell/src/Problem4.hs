@@ -8,8 +8,8 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 -}
 
 module Problem4
-( largestPalindromeProduct
-, answer
+( answer
+, largestPalindromeProduct
 ) where
 
 import Helpers.Runtime (printAnswerAndElapsedTime)

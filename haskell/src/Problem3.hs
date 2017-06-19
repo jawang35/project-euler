@@ -7,8 +7,8 @@ What is the largest prime factor of the number 600851475143 ?
 -}
 
 module Problem3
-( largestPrimeFactor
-, answer
+( answer
+, largestPrimeFactor
 ) where
 
 import Helpers.Numbers (primeDivisors)

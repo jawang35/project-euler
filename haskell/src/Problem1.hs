@@ -16,8 +16,8 @@ Use the formula 1 + 2 + ... + n = n * (n + 1) / 2
 -}
 
 module Problem1
-( sumMultiplesOf3And5
-, answer
+( answer
+, sumMultiplesOf3And5
 ) where
 
 import Helpers.Runtime (printAnswerAndElapsedTime)

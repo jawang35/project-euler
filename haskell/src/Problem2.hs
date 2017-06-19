@@ -11,8 +11,8 @@ the sum of the even-valued terms.
 -}
 
 module Problem2
-( sumEvenFibonacciNumbers
-, answer
+( answer
+, sumEvenFibonacciNumbers
 ) where
 
 import Helpers.Runtime (printAnswerAndElapsedTime)

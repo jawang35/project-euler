@@ -17,8 +17,8 @@ natural numbers and the square of the sum.
 -}
 
 module Problem6
-( sumSquareDifference
-, answer
+( answer
+, sumSquareDifference
 ) where
 
 import Helpers.Runtime (printAnswerAndElapsedTime)

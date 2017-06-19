@@ -8,8 +8,8 @@ What is the 10001st prime number?
 -}
 
 module Problem7
-( nthPrimeNumber
-, answer
+( answer
+, nthPrimeNumber
 ) where
 
 import Helpers.Numbers (isPrime)
