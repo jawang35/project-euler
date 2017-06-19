@@ -20,9 +20,13 @@ module Problem1
 , answer
 ) where
 
+import Helpers.Runtime (printAnswerAndElapsedTime)
+
 sumMultiplesOf3And5 :: Integer -> Integer
 sumMultiplesOf3And5 maximum =
     sum $ filter multipleOf3Or5 $ init [1..maximum]
     where multipleOf3Or5 number = number `mod` 3 == 0 || number `mod` 5 == 0
 
 answer = sumMultiplesOf3And5 1000
+
+main = printAnswerAndElapsedTime answer

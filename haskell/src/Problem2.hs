@@ -15,6 +15,8 @@ module Problem2
 , answer
 ) where
 
+import Helpers.Runtime (printAnswerAndElapsedTime)
+
 sumEvenFibonacciNumbers :: Integer -> Integer
 sumEvenFibonacciNumbers maximum =
     sum $ takeWhile (\n -> n <= maximum) $ filter even fibs
@@ -22,3 +24,5 @@ sumEvenFibonacciNumbers maximum =
           even number = number `mod` 2 == 0
 
 answer = sumEvenFibonacciNumbers 4000000
+
+main = printAnswerAndElapsedTime answer

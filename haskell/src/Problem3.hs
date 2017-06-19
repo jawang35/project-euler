@@ -12,8 +12,11 @@ module Problem3
 ) where
 
 import Helpers.Numbers (primeDivisors)
+import Helpers.Runtime (printAnswerAndElapsedTime)
 
 largestPrimeFactor :: Integer -> Integer
 largestPrimeFactor = maximum . primeDivisors
 
 answer = largestPrimeFactor 600851475143
+
+main = printAnswerAndElapsedTime answer

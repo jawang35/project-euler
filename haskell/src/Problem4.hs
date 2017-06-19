@@ -12,6 +12,7 @@ module Problem4
 , answer
 ) where
 
+import Helpers.Runtime (printAnswerAndElapsedTime)
 import Helpers.Strings (isPalindrome)
 
 largestPalindromeProduct :: Integer -> Integer -> Integer
@@ -20,3 +21,5 @@ largestPalindromeProduct min max =
     where products = [n * m | n <- [min..max], m <- [n..max]]
 
 answer = largestPalindromeProduct 100 1000
+
+main = printAnswerAndElapsedTime answer

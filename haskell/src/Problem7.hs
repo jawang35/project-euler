@@ -13,9 +13,12 @@ module Problem7
 ) where
 
 import Helpers.Numbers (isPrime)
+import Helpers.Runtime (printAnswerAndElapsedTime)
 
 nthPrimeNumber number =
     primes !! (number - 1)
     where primes = filter isPrime [1..]
 
 answer = nthPrimeNumber 10001
+
+main = printAnswerAndElapsedTime answer

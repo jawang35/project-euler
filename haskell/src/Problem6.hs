@@ -21,6 +21,8 @@ module Problem6
 , answer
 ) where
 
+import Helpers.Runtime (printAnswerAndElapsedTime)
+
 sumSquareDifference :: Integer -> Integer
 sumSquareDifference maximum =
     squareOfSums - sumOfSquares
@@ -29,3 +31,5 @@ sumSquareDifference maximum =
           sumOfSquares = sum $ map (^2) naturalNumbers
 
 answer = sumSquareDifference 100
+
+main = printAnswerAndElapsedTime answer
