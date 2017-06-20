@@ -3,14 +3,14 @@ module Helpers.Numbers
 , primeDivisors
 ) where
 
-isPrime :: Integer -> Bool
+isPrime :: (Integral a) => a -> Bool
 isPrime 2 = True
 isPrime number
     | number < 2 = False
     | otherwise = not $ any (\n -> number `mod` n == 0) [2..maxFactor]
     where maxFactor = 1 + (floor $ sqrt $ fromIntegral number)
 
-primeDivisors :: Integer -> [Integer]
+primeDivisors :: (Integral a) => a -> [a]
 primeDivisors number =
     case factors of
         [] -> [number]

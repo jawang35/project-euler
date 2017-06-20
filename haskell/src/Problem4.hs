@@ -15,12 +15,12 @@ module Problem4
 import Helpers.Runtime (printAnswerAndElapsedTime)
 import Helpers.Strings (isPalindrome)
 
-largestPalindromeProduct :: Integer -> Integer -> Integer
+largestPalindromeProduct :: (Integral a, Show a) => a -> a -> a
 largestPalindromeProduct min max =
     maximum $ filter (\n -> isPalindrome $ show n) products
     where products = [n * m | n <- [min..max], m <- [n..max]]
 
-answer :: Integer
+answer :: (Integral a, Show a) => a
 answer = largestPalindromeProduct 100 1000
 
 main = printAnswerAndElapsedTime answer

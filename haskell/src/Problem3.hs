@@ -14,10 +14,10 @@ module Problem3
 import Helpers.Numbers (primeDivisors)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-largestPrimeFactor :: Integer -> Integer
+largestPrimeFactor :: (Integral a) => a -> a
 largestPrimeFactor = maximum . primeDivisors
 
-answer :: Integer
+answer :: (Integral a) => a
 answer = largestPrimeFactor 600851475143
 
 main = printAnswerAndElapsedTime answer

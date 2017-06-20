@@ -17,13 +17,13 @@ module Problem2
 
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-sumEvenFibonacciNumbers :: Integer -> Integer
+sumEvenFibonacciNumbers :: (Integral a) => a -> a
 sumEvenFibonacciNumbers maximum =
     sum $ takeWhile (\n -> n <= maximum) $ filter even fibs
     where fibs = 1 : 2 : zipWith (+) fibs (tail fibs)
           even number = number `mod` 2 == 0
 
-answer :: Integer
+answer :: (Integral a) => a
 answer = sumEvenFibonacciNumbers 4000000
 
 main = printAnswerAndElapsedTime answer
