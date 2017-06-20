@@ -35,19 +35,21 @@ module Problem8
 , largestProductInASeries
 ) where
 
-import Data.Char
-import System.IO
-import Helpers.Runtime
+import Data.Char (digitToInt)
+import System.IO (readFile)
+import Helpers.Runtime (printAnswerAndElapsedTime)
 
-largestProductInASeries series digits =
+largestProductInASeries :: (Ord a, Num a) => Int -> [a] -> a
+largestProductInASeries digits series =
     maximum products
     where slices = map (\digit -> drop (digit - 1) series) [1..digits]
           products = foldl (zipWith (*)) (repeat 1) slices
 
+answer :: IO Int
 answer = do
     contents <- readFile "../assets/problem8/series.txt"
     let series = map (digitToInt) contents
-    return $ largestProductInASeries series 13
+    return $ largestProductInASeries 13 series
 
 main = do
     value <- answer

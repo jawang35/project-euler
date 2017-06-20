@@ -20,6 +20,7 @@ largestPalindromeProduct min max =
     maximum $ filter (\n -> isPalindrome $ show n) products
     where products = [n * m | n <- [min..max], m <- [n..max]]
 
+answer :: Integer
 answer = largestPalindromeProduct 100 1000
 
 main = printAnswerAndElapsedTime answer

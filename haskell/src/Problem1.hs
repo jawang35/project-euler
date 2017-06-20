@@ -27,6 +27,7 @@ sumMultiplesOf3And5 maximum =
     sum $ filter multipleOf3Or5 $ init [1..maximum]
     where multipleOf3Or5 number = number `mod` 3 == 0 || number `mod` 5 == 0
 
+answer :: Integer
 answer = sumMultiplesOf3And5 1000
 
 main = printAnswerAndElapsedTime answer

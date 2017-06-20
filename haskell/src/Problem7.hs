@@ -15,10 +15,12 @@ module Problem7
 import Helpers.Numbers (isPrime)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
+nthPrimeNumber :: Int -> Integer
 nthPrimeNumber number =
     primes !! (number - 1)
     where primes = filter isPrime [1..]
 
+answer :: Integer
 answer = nthPrimeNumber 10001
 
 main = printAnswerAndElapsedTime answer

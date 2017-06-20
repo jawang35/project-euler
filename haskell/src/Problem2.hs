@@ -23,6 +23,7 @@ sumEvenFibonacciNumbers maximum =
     where fibs = 1 : 2 : zipWith (+) fibs (tail fibs)
           even number = number `mod` 2 == 0
 
+answer :: Integer
 answer = sumEvenFibonacciNumbers 4000000
 
 main = printAnswerAndElapsedTime answer

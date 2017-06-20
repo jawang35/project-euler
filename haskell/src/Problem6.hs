@@ -30,6 +30,7 @@ sumSquareDifference maximum =
           squareOfSums = (sum naturalNumbers) ^ 2
           sumOfSquares = sum $ map (^2) naturalNumbers
 
+answer :: Integer
 answer = sumSquareDifference 100
 
 main = printAnswerAndElapsedTime answer

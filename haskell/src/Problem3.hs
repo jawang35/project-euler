@@ -17,6 +17,7 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 largestPrimeFactor :: Integer -> Integer
 largestPrimeFactor = maximum . primeDivisors
 
+answer :: Integer
 answer = largestPrimeFactor 600851475143
 
 main = printAnswerAndElapsedTime answer
