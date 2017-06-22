@@ -30,5 +30,7 @@ tests = TestList
 main :: IO Counts
 main = do
     counts <- runTestTT tests
-    if ((errors counts) + (failures counts) > 0) then error "Test errors or failures found!" else putStrLn "All tests passed!"
+    if (errors counts) + (failures counts) > 0
+        then error "Test errors or failures found!"
+        else putStrLn "All tests passed!"
     return counts

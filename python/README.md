@@ -4,11 +4,19 @@ Solutions written in Python 3.6.
 
 ## Setup
 
+Setup can be bypassed and tests run by building the Docker image.
+
+```sh
+docker build .
+```
+
+Alternatively, you can install dependencies and run tests locally.
+
 ```sh
 make install
 ```
 
-## Testing
+## Tests
 
 ```sh
 make test
