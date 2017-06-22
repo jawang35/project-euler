@@ -37,6 +37,7 @@ module Problem8
 
 import Data.Char (digitToInt)
 import System.IO (readFile)
+import Config (assetsPath)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 largestProductInASeries :: (Ord a, Num a) => Int -> [a] -> a
@@ -47,7 +48,7 @@ largestProductInASeries digits series =
 
 answer :: IO Int
 answer = do
-    contents <- readFile "../assets/problem8/series.txt"
+    contents <- readFile $ assetsPath ++ "/problem8/series.txt"
     let series = map (digitToInt) contents
     return $ largestProductInASeries 13 series
 

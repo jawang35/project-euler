@@ -1,3 +1,4 @@
+import Control.Exception
 import Test.HUnit
 import Problem1
 import Problem2
@@ -27,4 +28,7 @@ tests = TestList
     ]
 
 main :: IO Counts
-main = runTestTT tests
+main = do
+    counts <- runTestTT tests
+    if ((errors counts) + (failures counts) > 0) then error "Test errors or failures found!" else putStrLn "All tests passed!"
+    return counts
