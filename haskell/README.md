@@ -2,14 +2,9 @@
 
 Solutions written in Haskell2010.
 
-## Setup
+## Tests
+Unit tests are defined in the `test/Spec.hs` file and can be run by building the Docker image.
 
 ```sh
-make install
-```
-
-## Testing
-
-```sh
-make test
+docker build .
 ```

@@ -15,7 +15,8 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Helpers.Numbers
+  exposed-modules:     Config
+                     , Helpers.Numbers
                      , Helpers.Runtime
                      , Helpers.Strings
                      , Problem1
