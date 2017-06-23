@@ -26,6 +26,7 @@ library
                      , Problem6
                      , Problem7
                      , Problem8
+                     , Problem9
   build-depends:       base >= 4.7 && < 5
 
 test-suite project-euler-test
