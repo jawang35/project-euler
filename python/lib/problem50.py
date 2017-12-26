@@ -16,7 +16,7 @@ consecutive primes?
 '''
 
 
-from lib.helpers.numbers import sieve_of_eratosthenes 
+from lib.helpers.numbers import sieve_of_eratosthenes
 from lib.helpers.runtime import print_answer_and_elapsed_time
 
 
