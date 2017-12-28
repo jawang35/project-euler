@@ -15,6 +15,7 @@ Which prime, below one-million, can be written as the sum of the most
 consecutive primes?
 '''
 
+from functools import partial
 from lib.helpers.numbers import sieve_of_eratosthenes
 from lib.helpers.runtime import print_answer_and_elapsed_time
 
@@ -44,9 +45,7 @@ def most_consecutive_prime_sum(maximum):
 
     return result_sum_prime
 
-
-def answer():
-    return most_consecutive_prime_sum(1000000)
+answer = partial(most_consecutive_prime_sum, maximum=1000000)
 
 if __name__ == '__main__':
     print_answer_and_elapsed_time(answer)
