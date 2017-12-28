@@ -6,4 +6,7 @@ install:
 test:
 	pep8 . && PYTHONPATH=$(PWD) py.test -v --color=yes --durations=20
 
+run:
+	PYTHONPATH=$(PWD) python3 lib/problem$(problem).py
+
 .PHONY: install test
