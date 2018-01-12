@@ -9,4 +9,4 @@ test:
 run:
 	PYTHONPATH=$(PWD) python3 lib/problem$(problem).py
 
-.PHONY: install test
+.PHONY: install test run
