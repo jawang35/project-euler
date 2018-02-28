@@ -1,4 +1,4 @@
-# Project Euler [![Build Status](https://travis-ci.org/jawang35/project-euler.svg?branch=master)](https://travis-ci.org/jawang35/project-euler)
+# Project Euler [![CircleCI](https://circleci.com/gh/jawang35/project-euler.svg?style=svg)](https://circleci.com/gh/jawang35/project-euler)
 
 Solutions to [Project Euler](https://projecteuler.net/) problems in [Python](python#python) and [Haskell](haskell#haskell).
 
