@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  python:
+    docker:
+      - image: docker:stable-git
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build Python
+          command: cd python && docker build .
+  haskell:
+    docker:
+      - image: docker:stable-git
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build Haskell
+          command: cd haskell && docker build .
+workflows:
+  version: 2
+  python_and_haskell:
+    jobs:
+      - python
+      - haskell
