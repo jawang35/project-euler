@@ -2,13 +2,21 @@ version: 2
 jobs:
   python:
     docker:
-      - image: docker:stable-git
+      - image: circleci/python:3
     steps:
       - checkout
       - setup_remote_docker
       - run:
-          name: Build Python
-          command: cd python && docker build .
+          name: Install
+          command: |
+            python -m venv venv
+            . venv/bin/activate
+            cd python && make install
+      - run:
+          name: Test
+          command: |
+            . venv/bin/activate
+            cd python && make test
   haskell:
     docker:
       - image: docker:stable-git
