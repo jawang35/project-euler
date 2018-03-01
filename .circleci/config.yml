@@ -6,12 +6,18 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - restore_cache:
+          key: packages-{{ checksum "python/setup.py" }}-{{ checksum "python/requirements.txt" }}
       - run:
           name: Install
           command: |
             python -m venv venv
             . venv/bin/activate
             cd python && make install
+      - save_cache:
+          key: packages-{{ checksum "python/setup.py" }}-{{ checksum "python/requirements.txt" }}
+          paths:
+            - "venv"
       - run:
           name: Test
           command: |
