@@ -1,4 +1,7 @@
-# Project Euler [![CircleCI](https://circleci.com/gh/jawang35/project-euler.svg?style=svg)](https://circleci.com/gh/jawang35/project-euler)
+# Project Euler
+
+[![CircleCI](https://circleci.com/gh/jawang35/project-euler.svg?style=svg)](https://circleci.com/gh/jawang35/project-euler)
+[![codecov](https://codecov.io/gh/jawang35/project-euler/branch/master/graph/badge.svg)](https://codecov.io/gh/jawang35/project-euler)
 
 Solutions to [Project Euler](https://projecteuler.net/) problems in [Python](python#python) and [Haskell](haskell#haskell).
 

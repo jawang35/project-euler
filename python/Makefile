@@ -1,12 +1,12 @@
 PWD=$(shell pwd)
 
 install:
-	python3 setup.py install && pip3 install -r requirements.txt
+	python setup.py install && pip install -r requirements.txt
 
 test:
-	pep8 . && PYTHONPATH=$(PWD) py.test -v --color=yes --durations=20
+	pep8 . && PYTHONPATH=$(PWD) py.test -v --color=yes --durations=20 --cov=./ && codecov
 
 run:
-	PYTHONPATH=$(PWD) python3 lib/problem$(problem).py
+	PYTHONPATH=$(PWD) python lib/problem$(problem).py
 
 .PHONY: install test run
