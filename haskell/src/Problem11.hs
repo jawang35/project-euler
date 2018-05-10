@@ -52,45 +52,50 @@ largestProductInGrid grid =
 
 largestHorizontalProductInGrid :: [[Int]] -> Int
 largestHorizontalProductInGrid grid =
-    maximum $ map maximum products
+    maxGridProduct firsts seconds thirds fourths
     where width = length $ head grid
           firsts = map (take (width - 3)) grid
           seconds = map (take (width - 2) . drop 1) grid
           thirds = map (take (width - 1) . drop 2) grid
           fourths = map (drop 3) grid
-          products = zipWith4 (zipWith4 (\a b c d -> a * b * c * d)) firsts seconds thirds fourths
 
 largestVerticalProductInGrid :: [[Int]] -> Int
 largestVerticalProductInGrid grid =
-    maximum $ map maximum products
+    maxGridProduct firsts seconds thirds fourths
     where height = length grid
           firsts = take (height - 3) grid
           seconds = (take (height - 2) . drop 1) grid
           thirds = (take (height - 1) . drop 2) grid
           fourths = drop 3 grid
-          products = zipWith4 (zipWith4 (\a b c d -> a * b * c * d)) firsts seconds thirds fourths
 
 largestDiagonalProductInGrid :: [[Int]] -> Int
 largestDiagonalProductInGrid grid =
-    maximum $ map maximum products
+    maxGridProduct firsts seconds thirds fourths
     where width = length $ head grid
           height = length grid
           firsts = map (take (width - 3)) $ take (height - 3) grid
           seconds = map (take (width - 2) . drop 1) $ (take (height - 2) . drop 1) grid
           thirds = map (take (width - 1) . drop 2) $ (take (height - 1) . drop 2) grid
           fourths = map (drop 3) $ drop 3 grid
-          products = zipWith4 (zipWith4 (\a b c d -> a * b * c * d)) firsts seconds thirds fourths
 
 largestInverseDiagonalProductInGrid :: [[Int]] -> Int
 largestInverseDiagonalProductInGrid grid =
-    maximum $ map maximum products
+    maxGridProduct firsts seconds thirds fourths
     where width = length $ head grid
           height = length grid
           firsts = map (drop 3) grid
           seconds = map (drop 2) $ drop 1 grid
           thirds = map (drop 1) $ drop 2 grid
           fourths = drop 3 grid
-          products = zipWith4 (zipWith4 (\a b c d -> a * b * c * d)) firsts seconds thirds fourths
+
+gridMax :: (Ord a) => [[a]] -> a
+gridMax = maximum . (map maximum)
+
+gridProducts :: (Num a) => [[a]] -> [[a]] -> [[a]] -> [[a]] -> [[a]]
+gridProducts = zipWith4 (zipWith4 (\a b c d -> a * b * c * d))
+
+maxGridProduct :: (Ord a, Num a) => [[a]] -> [[a]] -> [[a]] -> [[a]] -> a
+maxGridProduct firsts seconds thirds fourths = gridMax $ gridProducts firsts seconds thirds fourths
 
 stringToInt :: String -> Int
 stringToInt = read
