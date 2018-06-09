@@ -25,13 +25,13 @@ jobs:
             cd python && make test
   haskell:
     docker:
-      - image: haskell:8.0
+      - image: haskell:8.2.2
     steps:
       - checkout
       - setup_remote_docker
       - run:
           name: Install
-          command: cd haskell && stack setup 8.0
+          command: cd haskell && stack setup 8.2.2
       - restore_cache:
           key: stack-{{ checksum "haskell/stack.yaml" }}
       - restore_cache:
