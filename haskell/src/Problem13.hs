@@ -119,8 +119,8 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 stringToInteger :: String -> Integer
 stringToInteger = read
 
-largeSum :: (Show a, Integral a) => [a] -> Int -> Integer
-largeSum numbers leadingDigits =
+largeSum :: (Show a, Integral a) => Int -> [a] -> Integer
+largeSum leadingDigits numbers =
     stringToInteger $ take leadingDigits $ show $ sum truncatedNumbers
     where digitsPerNumber = length $ show $ head numbers
           digitsToConsider = round $ (fromIntegral leadingDigits) + (logBase 10 (fromIntegral $ length numbers))
@@ -131,7 +131,7 @@ answer :: IO Integer
 answer = do
     contents <- readFile $ assetsPath ++ "/problem13/numbers.txt"
     let numbers = map (stringToInteger) $ splitOn "\n" contents
-    return $ largeSum numbers 10
+    return $ largeSum 10 numbers
 
 main = do
     value <- answer
