@@ -18,21 +18,21 @@ module Problem9
 
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-isPythagorean :: (Integral a) => (a, a, a) -> Bool
+isPythagorean :: (Int, Int, Int) -> Bool
 isPythagorean (a, b, c) = a^2 + b^2 == c^2
 
-productFirstPythagoreanTriplet :: (Num a) => [(a, a, a)] -> a
+productFirstPythagoreanTriplet :: [(Int, Int, Int)] -> Int
 productFirstPythagoreanTriplet [] = 0
 productFirstPythagoreanTriplet (x:_) = tripletProduct x
     where tripletProduct (a, b, c) = a * b * c
 
-productSpecialPythagoreanTriplet :: (Integral a) => a -> a
+productSpecialPythagoreanTriplet :: Int -> Int
 productSpecialPythagoreanTriplet sum =
     productFirstPythagoreanTriplet specialPythagoreanTriplets
     where possibleTriplets = [(a, b, sum - a - b) | a <- [1..(sum - 2)], b <- [a..(sum - a - 1)]]
           specialPythagoreanTriplets = filter isPythagorean possibleTriplets
 
-answer :: (Integral a) => a
+answer :: Int
 answer = productSpecialPythagoreanTriplet 1000
 
 main = printAnswerAndElapsedTime answer

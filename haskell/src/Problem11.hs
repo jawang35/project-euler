@@ -88,13 +88,13 @@ largestInverseDiagonalProductInGrid grid =
           thirds = map (drop 1) $ drop 2 grid
           fourths = drop 3 grid
 
-gridMax :: (Ord a) => [[a]] -> a
+gridMax :: [[Int]] -> Int
 gridMax = maximum . (map maximum)
 
-gridProducts :: (Num a) => [[a]] -> [[a]] -> [[a]] -> [[a]] -> [[a]]
+gridProducts :: [[Int]] -> [[Int]] -> [[Int]] -> [[Int]] -> [[Int]]
 gridProducts = zipWith4 (zipWith4 (\a b c d -> a * b * c * d))
 
-maxGridProduct :: (Ord a, Num a) => [[a]] -> [[a]] -> [[a]] -> [[a]] -> a
+maxGridProduct :: [[Int]] -> [[Int]] -> [[Int]] -> [[Int]] -> Int
 maxGridProduct firsts seconds thirds fourths = gridMax $ gridProducts firsts seconds thirds fourths
 
 stringToInt :: String -> Int

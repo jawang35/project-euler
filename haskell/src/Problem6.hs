@@ -23,14 +23,14 @@ module Problem6
 
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-sumSquareDifference :: (Integral a) => a -> a
+sumSquareDifference :: Int -> Int
 sumSquareDifference maximum =
     squareOfSums - sumOfSquares
     where naturalNumbers = [1..maximum]
           squareOfSums = (sum naturalNumbers) ^ 2
           sumOfSquares = sum $ map (^2) naturalNumbers
 
-answer :: (Integral a) => a
+answer :: Int
 answer = sumSquareDifference 100
 
 main = printAnswerAndElapsedTime answer

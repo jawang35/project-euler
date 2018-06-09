@@ -119,7 +119,7 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 stringToInteger :: String -> Integer
 stringToInteger = read
 
-largeSum :: (Show a, Integral a) => Int -> [a] -> Integer
+largeSum :: Int -> [Integer] -> Integer
 largeSum leadingDigits numbers =
     stringToInteger $ take leadingDigits $ show $ sum truncatedNumbers
     where digitsPerNumber = length $ show $ head numbers

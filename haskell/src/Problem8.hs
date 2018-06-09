@@ -40,7 +40,7 @@ import System.IO (readFile)
 import Config (assetsPath)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-largestProductInASeries :: (Ord a, Num a) => Int -> [a] -> a
+largestProductInASeries :: Int -> [Int] -> Int
 largestProductInASeries digits series =
     maximum products
     where slices = map (\digit -> drop (digit - 1) series) [1..digits]
