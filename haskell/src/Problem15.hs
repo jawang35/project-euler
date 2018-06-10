@@ -26,6 +26,7 @@ latticePaths = memoize latticePaths'
                 latticePaths'' _ 0 = 1
                 latticePaths'' x y = latticePaths (x - 1) y + latticePaths x (y - 1)
 
+answer :: Int
 answer = latticePaths 20 20
 
 main = printAnswerAndElapsedTime answer
