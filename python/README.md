@@ -5,17 +5,17 @@ Solutions written in Python 3.6.
 ## Setup
 
 ```sh
-make install
+$ make install
 ```
 
 ## Tests
 
 ```sh
-make test
+$ make test
 ```
 
 ## Run Individual Problem Solutions
 
 ```sh
-make run problem=[number] # i.e. make run problem=50
+$ make run problem=[number] # i.e. make run problem=50
 ```
