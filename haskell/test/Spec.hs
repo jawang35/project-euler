@@ -12,6 +12,7 @@ import Problem11
 import Problem12
 import Problem13
 import Problem14
+import Problem15
 
 problem1 = TestCase $ assertEqual "Answer" 233168 Problem1.answer
 problem2 = TestCase $ assertEqual "Answer" 4613732 Problem2.answer
@@ -28,6 +29,7 @@ problem12 = TestCase $ assertEqual "Answer" 76576500 Problem12.answer
 problem13 = TestCase (do answer <- Problem13.answer
                          assertEqual "Answer" 5537376230 answer)
 problem14 = TestCase $ assertEqual "Answer" 837799 Problem14.answer
+problem15 = TestCase $ assertEqual "Answer" 137846528820 Problem15.answer
 
 tests = TestList
     [ TestLabel "Problem 1" problem1
@@ -42,6 +44,7 @@ tests = TestList
     , TestLabel "Problem 12" problem12
     , TestLabel "Problem 13" problem13
     , TestLabel "Problem 14" problem14
+    , TestLabel "Problem 15" problem15
     ]
 
 main :: IO Counts

@@ -31,6 +31,7 @@ library
                      , Problem12
                      , Problem13
                      , Problem14
+                     , Problem15
   build-depends:       base >= 4.7 && < 5
                      , split
 
