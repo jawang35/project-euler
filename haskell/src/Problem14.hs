@@ -40,10 +40,10 @@ collatzSequence number =
 longestCollatzSequence :: Int -> Int
 longestCollatzSequence limit =
     fromJust (elemIndex longestSequenceLength sequenceLengths) + 1
-    where sequenceLengths       = map (length . collatzSequence) [1..limit]
+    where sequenceLengths       = init $ map (length . collatzSequence) [1..limit]
           longestSequenceLength = maximum sequenceLengths
 
 answer :: Int
-answer = longestCollatzSequence 999999
+answer = longestCollatzSequence 1000000
 
 main = printAnswerAndElapsedTime answer
