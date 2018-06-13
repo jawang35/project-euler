@@ -59,8 +59,16 @@ teens = Map.fromList
 
 numberLetterCount :: Int -> Int
 numberLetterCount n
-    | n > 999   = ones Map.! (take 1 (show n)) + 8 + (let rest = n `mod` 1000 in (if 0 < rest && rest < 100 then 3 + numberLetterCount rest else numberLetterCount rest))
-    | n > 99    = ones Map.! (take 1 (show n)) + 7 + (let rest = n `mod` 100 in (if rest > 0 then 3 + numberLetterCount rest else 0))
+    | n > 999   = ones Map.! (take 1 (show n)) + 8
+                + (let rest = n `mod` 1000 in
+                    (if 0 < rest && rest < 100
+                        then 3 + numberLetterCount rest
+                        else numberLetterCount rest))
+    | n > 99    = ones Map.! (take 1 (show n)) + 7
+                + (let rest = n `mod` 100 in
+                    (if rest > 0
+                        then 3 + numberLetterCount rest
+                        else 0))
     | n > 19    = tens Map.! (take 1 (show n)) + (numberLetterCount $ n `mod` 10)
     | n > 10    = teens Map.! (show n)
     | n == 10   = tens Map.! "1"
