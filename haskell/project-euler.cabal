@@ -34,6 +34,8 @@ library
                      , Problem15
                      , Problem16
                      , Problem17
+                     , Problem18
+                     , Problem67
   build-depends:       base >= 4.7 && < 5
                      , containers
                      , split
