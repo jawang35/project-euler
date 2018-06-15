@@ -46,17 +46,11 @@ import Data.List.Split (splitOn)
 import Config (assetsPath)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-leftSumsTo :: [Int] -> [Int] -> [Int]
-leftSumsTo xs ys = zipWith (+) xs ys ++ [last ys]
-
-rightSumsTo :: [Int] -> [Int] -> [Int]
-rightSumsTo xs (y:ys) = y:(zipWith (+) xs ys)
-
 maxSumsTo :: [Int] -> [Int] -> [Int]
 maxSumsTo xs ys =
     zipWith max left right
-    where left  = xs `leftSumsTo` ys
-          right = xs `rightSumsTo` ys
+    where left  = zipWith (+) xs ys ++ [last ys]
+          right = head ys:(zipWith (+) xs $ tail ys)
 
 pathSums :: [[Int]] -> [[Int]]
 pathSums (x1:x2:xs) =
