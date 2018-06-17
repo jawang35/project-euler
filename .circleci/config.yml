@@ -31,14 +31,14 @@ jobs:
       - setup_remote_docker
       - run:
           name: Install
-          command: cd haskell && stack setup 8.2.2
+          command: cd haskell && stack setup
       - restore_cache:
           key: stack-{{ checksum "haskell/stack.yaml" }}
       - restore_cache:
           key: stack-work-{{ checksum "haskell/project-euler.cabal" }}
       - run:
-          name: Test
-          command: cd haskell && stack test
+          name: Build
+          command: cd haskell && stack build
       - save_cache:
           key: stack-{{ checksum "haskell/stack.yaml" }}
           paths:
@@ -47,6 +47,9 @@ jobs:
           key: stack-work-{{ checksum "haskell/project-euler.cabal" }}
           paths:
             - "haskell/.stack-work"
+      - run:
+          name: Test
+          command: cd haskell && stack test
 workflows:
   version: 2
   python_and_haskell:
