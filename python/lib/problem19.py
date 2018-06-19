@@ -21,7 +21,6 @@ How many Sundays fell on the first of the month during the twentieth century
 from functools import partial
 from datetime import date
 from lib.helpers.runtime import print_answer_and_elapsed_time
-from lib.helpers.dates import day_of_week
 
 days_in_month = {
     1: 31,
@@ -41,12 +40,12 @@ days_in_month = {
 
 def counting_sundays(start, end):
     sundays_on_first_of_month = 0
-    current_day_of_week = day_of_week(start)
+    current_day_of_week = start.weekday()
     for year in range(start.year, end.year + 1):
         leap_year = year % 400 == 0 or (year % 4 == 0 and year % 100 > 0)
         for month in range(1, 13):
             if current_day_of_week is None:
-                current_day_of_week = day_of_week(start)
+                current_day_of_week = start.weekday()
             elif leap_year and month == 2:
                 current_day_of_week += (days_in_month[2] + 1)
             else:
