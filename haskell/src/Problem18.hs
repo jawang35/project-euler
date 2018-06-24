@@ -61,11 +61,8 @@ pathSums xss = xss
 maximumPathSum :: [[Int]] -> Int
 maximumPathSum = maximum . last . pathSums
 
-stringToInt :: String -> Int
-stringToInt = read
-
 parseTriangle :: String -> [[Int]]
-parseTriangle = map (map stringToInt . splitOn " ") . splitOn "\n"
+parseTriangle = map (map read . words) . lines
 
 answer :: IO Int
 answer = do

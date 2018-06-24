@@ -53,43 +53,43 @@ largestProductInGrid grid =
 largestHorizontalProductInGrid :: [[Int]] -> Int
 largestHorizontalProductInGrid grid =
     maxGridProduct firsts seconds thirds fourths
-    where width = length $ head grid
-          firsts = map (take (width - 3)) grid
+    where width   = length $ head grid
+          firsts  = map (take (width - 3)) grid
           seconds = map (take (width - 2) . drop 1) grid
-          thirds = map (take (width - 1) . drop 2) grid
+          thirds  = map (take (width - 1) . drop 2) grid
           fourths = map (drop 3) grid
 
 largestVerticalProductInGrid :: [[Int]] -> Int
 largestVerticalProductInGrid grid =
     maxGridProduct firsts seconds thirds fourths
-    where height = length grid
-          firsts = take (height - 3) grid
+    where height  = length grid
+          firsts  = take (height - 3) grid
           seconds = (take (height - 2) . drop 1) grid
-          thirds = (take (height - 1) . drop 2) grid
+          thirds  = (take (height - 1) . drop 2) grid
           fourths = drop 3 grid
 
 largestDiagonalProductInGrid :: [[Int]] -> Int
 largestDiagonalProductInGrid grid =
     maxGridProduct firsts seconds thirds fourths
-    where width = length $ head grid
-          height = length grid
-          firsts = map (take (width - 3)) $ take (height - 3) grid
+    where width   = length $ head grid
+          height  = length grid
+          firsts  = map (take (width - 3)) $ take (height - 3) grid
           seconds = map (take (width - 2) . drop 1) $ (take (height - 2) . drop 1) grid
-          thirds = map (take (width - 1) . drop 2) $ (take (height - 1) . drop 2) grid
+          thirds  = map (take (width - 1) . drop 2) $ (take (height - 1) . drop 2) grid
           fourths = map (drop 3) $ drop 3 grid
 
 largestInverseDiagonalProductInGrid :: [[Int]] -> Int
 largestInverseDiagonalProductInGrid grid =
     maxGridProduct firsts seconds thirds fourths
-    where width = length $ head grid
-          height = length grid
-          firsts = map (drop 3) grid
+    where width   = length $ head grid
+          height  = length grid
+          firsts  = map (drop 3) grid
           seconds = map (drop 2) $ drop 1 grid
-          thirds = map (drop 1) $ drop 2 grid
+          thirds  = map (drop 1) $ drop 2 grid
           fourths = drop 3 grid
 
 gridMax :: [[Int]] -> Int
-gridMax = maximum . (map maximum)
+gridMax = maximum . map maximum
 
 gridProducts :: [[Int]] -> [[Int]] -> [[Int]] -> [[Int]] -> [[Int]]
 gridProducts = zipWith4 (zipWith4 (\a b c d -> a * b * c * d))
@@ -97,13 +97,10 @@ gridProducts = zipWith4 (zipWith4 (\a b c d -> a * b * c * d))
 maxGridProduct :: [[Int]] -> [[Int]] -> [[Int]] -> [[Int]] -> Int
 maxGridProduct firsts seconds thirds fourths = gridMax $ gridProducts firsts seconds thirds fourths
 
-stringToInt :: String -> Int
-stringToInt = read
-
 answer :: IO Int
 answer = do
     contents <- readFile $ assetsPath ++ "/problem11/grid.txt"
-    let grid = init $ map ((map stringToInt) . splitOn " ") $ splitOn "\n" contents
+    let grid = init $ map (map read . words) $ lines contents
     return $ largestProductInGrid grid
 
 main = do

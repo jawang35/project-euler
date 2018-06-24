@@ -31,10 +31,12 @@ module Problem12
 import Helpers.Numbers (divisors)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
+triangularNumbers :: [Int]
+triangularNumbers = map (\n -> n * (n + 1) `div` 2) [1..]
+
 highlyDivisibleTriangularNumber :: Int -> Int
 highlyDivisibleTriangularNumber numberOfDivisors =
     head $ filter (\n -> length (divisors n) > numberOfDivisors) triangularNumbers
-    where triangularNumbers = map (\n -> n * (n + 1) `div` 2) [1..]
 
 answer :: Int
 answer = highlyDivisibleTriangularNumber 500

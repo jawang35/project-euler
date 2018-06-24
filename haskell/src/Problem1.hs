@@ -22,10 +22,12 @@ module Problem1
 
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
+multipleOf3Or5 :: Int -> Bool
+multipleOf3Or5 number = number `mod` 3 == 0 || number `mod` 5 == 0
+
 sumMultiplesOf3And5 :: Int -> Int
 sumMultiplesOf3And5 maximum =
     sum $ filter multipleOf3Or5 $ init [1..maximum]
-    where multipleOf3Or5 number = number `mod` 3 == 0 || number `mod` 5 == 0
 
 answer :: Int
 answer = sumMultiplesOf3And5 1000
