@@ -20,6 +20,7 @@ How many Sundays fell on the first of the month during the twentieth century
 
 module Problem19
 ( answer
+, firstSundays
 ) where
 
 import Data.Time.Calendar (Day, fromGregorian, toGregorian)
