@@ -35,10 +35,12 @@ library
                      , Problem16
                      , Problem17
                      , Problem18
+                     , Problem19
                      , Problem67
   build-depends:       base >= 4.7 && < 5
                      , containers
                      , split
+                     , time
   default-language:    Haskell2010
 
 test-suite project-euler-test
