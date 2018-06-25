@@ -18,11 +18,11 @@ module Problem2
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 fibs :: [Int]
-fibs = 1 : 2 : zipWith (+) fibs (tail fibs)
+fibs = 1:2:(zipWith (+) fibs $ tail fibs)
 
 sumEvenFibonacciNumbers :: Int -> Int
 sumEvenFibonacciNumbers maximum =
-    sum $ takeWhile (\n -> n <= maximum) $ filter even fibs
+    sum $ takeWhile (<= maximum) $ filter even fibs
 
 answer :: Int
 answer = sumEvenFibonacciNumbers 4000000
