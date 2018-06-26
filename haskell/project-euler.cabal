@@ -7,7 +7,7 @@ license:             BSD3
 license-file:        LICENSE
 author:              Jason Wang
 maintainer:          jawang35
-copyright:           2017 Jason Wang
+copyright:           2018 Jason Wang
 category:            Math
 build-type:          Simple
 extra-source-files:  README.md
@@ -37,6 +37,7 @@ library
                      , Problem18
                      , Problem19
                      , Problem20
+                     , Problem21
                      , Problem67
   build-depends:       base >= 4.7 && < 5
                      , containers
