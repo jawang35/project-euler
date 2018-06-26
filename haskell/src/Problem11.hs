@@ -38,7 +38,6 @@ module Problem11
 
 import System.IO (readFile)
 import Data.List (zipWith4)
-import Data.List.Split (splitOn)
 import Config (assetsPath)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 

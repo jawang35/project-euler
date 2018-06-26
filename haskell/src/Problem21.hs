@@ -14,12 +14,14 @@ Evaluate the sum of all the amicable numbers under 10000.
 
 module Problem21
 ( answer
+, sumAmicableNumbers
 ) where
 
 import qualified Data.Map as Map
 import Helpers.Numbers (divisors)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
+sumAmicableNumbers :: Int -> Int
 sumAmicableNumbers maximum =
     sum $ map snd amicablePairs
     where numbers            = [1..maximum]
@@ -31,6 +33,7 @@ sumAmicableNumbers maximum =
                             && (divisorSumsMap Map.! ds == n)
           amicablePairs      = filter isAmicable divisorSums
 
+answer :: Int
 answer = sumAmicableNumbers 10000
 
 main = printAnswerAndElapsedTime answer

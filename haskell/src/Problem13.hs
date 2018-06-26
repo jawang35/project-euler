@@ -112,7 +112,6 @@ module Problem13
 ) where
 
 import System.IO (readFile)
-import Data.List.Split (splitOn)
 import Config (assetsPath)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
