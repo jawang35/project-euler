@@ -3,6 +3,7 @@ module Helpers.Numbers
 , primeDivisors
 , divisors
 , properDivisors
+, fibs
 ) where
 
 import Data.List (nub)
@@ -30,3 +31,6 @@ divisors number = nub $ concat divisorPairs
 
 properDivisors :: (Integral a) => a -> [a]
 properDivisors number = filter (\d -> d /= number) $ divisors number
+
+fibs :: (Integral a) => [a]
+fibs = 1:1:(zipWith (+) fibs $ tail fibs)

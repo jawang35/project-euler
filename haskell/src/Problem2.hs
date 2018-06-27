@@ -15,10 +15,8 @@ module Problem2
 , sumEvenFibonacciNumbers
 ) where
 
+import Helpers.Numbers (fibs)
 import Helpers.Runtime (printAnswerAndElapsedTime)
-
-fibs :: [Int]
-fibs = 1:2:(zipWith (+) fibs $ tail fibs)
 
 sumEvenFibonacciNumbers :: Int -> Int
 sumEvenFibonacciNumbers maximum =
