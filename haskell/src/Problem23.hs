@@ -29,13 +29,16 @@ import qualified Data.Set as Set
 import Helpers.Numbers (properDivisors)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
+abundantNumbers :: [Int]
 abundantNumbers = filter (\n -> (sum $ properDivisors n) > n) [12..]
 
+nonAbundantSums :: [Int]
 nonAbundantSums =
     filter (flip Set.notMember abundantSums) [1..28123]
     where validAbundantNumbers = takeWhile (<= 28123) abundantNumbers
           abundantSums         = Set.fromList $ filter (<= 28123) [a + b | a <- validAbundantNumbers, b <- validAbundantNumbers]
 
+answer :: Int
 answer = sum nonAbundantSums
 
 main = printAnswerAndElapsedTime answer
