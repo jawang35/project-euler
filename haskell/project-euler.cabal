@@ -39,6 +39,7 @@ library
                      , Problem20
                      , Problem21
                      , Problem22
+                     , Problem23
                      , Problem67
   build-depends:       base >= 4.7 && < 5
                      , containers

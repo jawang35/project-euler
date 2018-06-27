@@ -2,6 +2,7 @@ module Helpers.Numbers
 ( isPrime
 , primeDivisors
 , divisors
+, properDivisors
 ) where
 
 import Data.List (nub)
@@ -26,3 +27,6 @@ divisors number = nub $ concat divisorPairs
     where range        = [1..(floor $ sqrt $ fromIntegral number)]
           isDivisor    = (==0) . (number `rem`)
           divisorPairs = map (\x -> [x, number `div` x]) $ filter isDivisor $ range
+
+properDivisors :: (Integral a) => a -> [a]
+properDivisors number = filter (\d -> d /= number) $ divisors number

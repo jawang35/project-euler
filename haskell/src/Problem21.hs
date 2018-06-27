@@ -18,14 +18,14 @@ module Problem21
 ) where
 
 import qualified Data.Map as Map
-import Helpers.Numbers (divisors)
+import Helpers.Numbers (properDivisors)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 sumAmicableNumbers :: Int -> Int
 sumAmicableNumbers maximum =
     sum $ map snd amicablePairs
     where numbers            = [1..maximum]
-          divisorSums        = map (\n -> (n, sum $ filter (/= n) $ divisors n)) numbers
+          divisorSums        = map (\n -> (n, sum $ properDivisors n)) numbers
           divisorSumsMap     = Map.fromList divisorSums
           isAmicable (n, ds) = ds /= 0
                             && ds < maximum
