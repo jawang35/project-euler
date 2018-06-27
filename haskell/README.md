@@ -2,6 +2,13 @@
 
 Solutions written in Haskell2010.
 
+## Setup
+
+```sh
+$ stack setup
+$ stack build
+```
+
 ## Tests
 
 Unit tests are defined in the `test/Spec.hs` file.
