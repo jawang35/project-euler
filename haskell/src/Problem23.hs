@@ -22,23 +22,27 @@ two abundant numbers.
 
 module Problem23
 ( answer
-, nonAbundantSums
+, sumNonAbundantSums
 ) where
 
-import qualified Data.Set as Set
+import Data.IntSet (fromList, toList)
 import Helpers.Numbers (properDivisors)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-abundantNumbers :: [Int]
-abundantNumbers = filter (\n -> (sum $ properDivisors n) > n) [12..]
+nub' :: [Int] -> [Int]
+nub' = toList . fromList
 
-nonAbundantSums :: [Int]
-nonAbundantSums =
-    filter (flip Set.notMember abundantSums) [1..28123]
-    where validAbundantNumbers = takeWhile (<= 28123) abundantNumbers
-          abundantSums         = Set.fromList $ filter (<= 28123) [a + b | a <- validAbundantNumbers, b <- validAbundantNumbers]
+sumNonAbundantSums :: Int
+sumNonAbundantSums =
+    sum [1..28123] - (sum abundantSums)
+    where abundantNumbers = filter (\n -> (sum $ properDivisors n) > n) [12..28123]
+          abundantSums    = nub' [a + b | a <- abundantNumbers
+                                        , b <- abundantNumbers
+                                        , a <= b
+                                        , (a + b <= 28123)
+                                 ]
 
 answer :: Int
-answer = sum nonAbundantSums
+answer = sumNonAbundantSums
 
 main = printAnswerAndElapsedTime answer
