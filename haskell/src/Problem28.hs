@@ -44,7 +44,7 @@ prependDiagonals xxs@(x:xs) n =
 sumSpiralDiagonals :: Int -> Int
 sumSpiralDiagonals side =
     sum $ foldl prependDiagonals [1] radiusSteps
-    where radiusSteps = takeWhile (\n -> (2 * n) + 1 <= side) [1..]
+    where radiusSteps = take ((side - 1) `div` 2) [1..]
 
 answer :: Int
 answer = sumSpiralDiagonals 1001
