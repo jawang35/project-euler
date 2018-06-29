@@ -30,15 +30,13 @@ module Problem25
 ) where
 
 import Data.List (findIndex)
+import Data.Maybe (fromJust)
 import Helpers.Numbers (fibs)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 fibOfSize :: Int -> Int
 fibOfSize digits =
-    let maybeIndex = findIndex ((>= digits) . length . show) fibs in
-    case maybeIndex of
-        Just index -> index + 1
-        Nothing    -> -1
+    1 + (fromJust $ findIndex ((>= digits) . length . show) fibs)
 
 answer :: Int
 answer = fibOfSize 1000

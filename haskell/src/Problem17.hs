@@ -18,7 +18,7 @@ module Problem17
 , numberLetterCount
 ) where
 
-import qualified Data.Map as Map
+import qualified Data.Map.Strict as Map
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 ones = Map.fromList
