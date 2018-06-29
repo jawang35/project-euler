@@ -35,11 +35,14 @@ import Data.Maybe (fromJust)
 import Helpers.Numbers (isPrime)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
+consecutivePrimes :: [Int] -> Int
 consecutivePrimes = length . takeWhile isPrime
 
+consecutiveQuadraticPrimes :: Int -> Int -> Int
 consecutiveQuadraticPrimes a b =
     consecutivePrimes $ map (\n -> n^2 + (a * n) + b) [0..]
 
+answer :: Int
 answer =
     a * b
     where allConsecutiveQuadraticPrimes = [ (a, b, consecutiveQuadraticPrimes a b)
