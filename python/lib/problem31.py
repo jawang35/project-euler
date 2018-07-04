@@ -11,8 +11,6 @@ It is possible to make £2 in the following way:
 How many different ways can £2 be made using any number of coins?
 '''
 
-# coins = [200, 100, 50, 20, 10, 5, 2, 1]
-
 from lib.helpers.runtime import print_answer_and_elapsed_time
 
 
