@@ -34,10 +34,10 @@ pandigitalProducts :: [(Int, Int, Int)]
 pandigitalProducts =
     nubBy (\(_, _, p1) (_, _, p2) -> p1 == p2) [ (x, y, x * y)
                                                | x <- takeWhile (<= 99) uniqueDigitNumbers
-                                               , y <- takeWhile (<= 9999) uniqueDigitNumbers
+                                               , y <- takeWhile (<= 4999) uniqueDigitNumbers
                                                , isPandigitalProduct x y
                                                ]
-    where uniqueDigitNumbers = filter uniqueDigits [1..]
+    where uniqueDigitNumbers = filter uniqueDigits [2..]
 
 answer :: Int
 answer = sum $ map (\(_, _, p) -> p) pandigitalProducts
