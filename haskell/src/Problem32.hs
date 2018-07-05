@@ -36,8 +36,8 @@ insertOperator before digits =
 productIdentities :: [Int] -> [(Int, Int, Int)]
 productIdentities digits =
     concat $ zipWith3 (\mr md p -> zip3 (repeat mr) md p) multipliers multiplicands products
-    where multiplierSplit = insertOperator 2 digits
-          equalSplit      = map ((insertOperator 1) . snd) multiplierSplit
+    where multiplierSplit = insertOperator 5 digits
+          equalSplit      = map ((insertOperator 4) . snd) multiplierSplit
           multipliers     = map (digitsToInt . fst) multiplierSplit
           multiplicands   = map (map $ digitsToInt . fst) equalSplit
           products        = map (map $ digitsToInt . snd) equalSplit
