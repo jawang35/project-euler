@@ -29,14 +29,14 @@ digitsToInt :: [Int] -> Int
 digitsToInt = read . map intToDigit
 
 insertOperator :: Int -> [Int] -> [([Int], [Int])]
-insertOperator before digits =
+insertOperator rightPosition digits =
     map (flip splitAt digits) positions
-    where positions = take (length digits - before) [1..]
+    where positions = take (length digits - rightPosition) [1..]
 
 productIdentities :: [Int] -> [(Int, Int, Int)]
 productIdentities digits =
     concat $ zipWith3 (\mr md p -> zip3 (repeat mr) md p) multipliers multiplicands products
-    where multiplierSplit = insertOperator 5 digits
+    where multiplierSplit = insertOperator 7 digits
           equalSplit      = map ((insertOperator 4) . snd) multiplierSplit
           multipliers     = map (digitsToInt . fst) multiplierSplit
           multiplicands   = map (map $ digitsToInt . fst) equalSplit
