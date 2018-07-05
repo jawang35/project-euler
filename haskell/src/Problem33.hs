@@ -16,45 +16,20 @@ find the value of the denominator.
 
 module Problem33
 ( answer
-, badSimplification
 ) where
 
-import Data.List (intersect)
 import Data.Ratio ((%), denominator)
 import Helpers.Runtime (printAnswerAndElapsedTime)
-
-removeItem :: (Eq a) => a -> [a] -> [a]
-removeItem _ [] = []
-removeItem item (x:xs)
-    | x == item = xs
-    | otherwise = x:(removeItem item xs)
-
-removeItems :: (Eq a) => [a] -> [a] -> [a]
-removeItems [] ys     = ys
-removeItems (x:xs) ys =
-    removeItems xs $ removeItem x ys
-
-badSimplification :: Int -> Int -> (Int, Int)
-badSimplification numerator denominator =
-    (simplifiedNumerator, simplifiedDenominator)
-    where commonDigits           = intersect (show numerator) (show denominator)
-          simplifiedNumeratorS   = removeItems commonDigits $ show numerator
-          simplifiedDenominatorS = removeItems commonDigits $ show denominator
-          simplifiedNumerator    = if simplifiedNumeratorS == "" then 1 else read simplifiedNumeratorS
-          simplifiedDenominator  = if simplifiedDenominatorS == "" then 1 else read simplifiedDenominatorS
 
 answer :: Int
 answer =
     denominator $ product
-        [ (n % d)
-        | n <- [1..99]
-        , d <- [1..99]
-        , n < d
-        , n `mod` 10 /= 0 || d `mod` 10 /= 0
-        , let (bsn, bsd) = badSimplification n d in
-            bsd /= 0
-            && bsn /= n
-            && (n % d) == (bsn % bsd)
+        [ x % z
+        | x <- [1..9]
+        , y <- [1..9]
+        , z <- [1..9]
+        , x < y
+        , (9 * x * z) + (y * z) == 10 * x * y
         ]
 
 main = printAnswerAndElapsedTime answer
