@@ -20,38 +20,24 @@ module Problem32
 , pandigitalProducts
 ) where
 
-import Data.Char (intToDigit)
-import Data.List (nubBy, permutations)
-import qualified Data.Set as Set
+import Data.List (nub, nubBy, sort)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-digitsToInt :: [Int] -> Int
-digitsToInt = read . map intToDigit
+isPandigitalProduct :: Int -> Int -> Bool
+isPandigitalProduct x y = (sort $ show x ++ show y ++ show (x * y)) == "123456789"
 
-insertOperator :: Int -> [Int] -> [([Int], [Int])]
-insertOperator rightPosition digits =
-    map (flip splitAt digits) positions
-    where positions = take (length digits - rightPosition) [1..]
-
-productIdentities :: [Int] -> [(Int, Int, Int)]
-productIdentities digits =
-    concat $ zipWith3 (\mr md p -> zip3 (repeat mr) md p) multipliers multiplicands products
-    where multiplierSplit = insertOperator 7 digits
-          equalSplit      = map ((insertOperator 4) . snd) multiplierSplit
-          multipliers     = map (digitsToInt . fst) multiplierSplit
-          multiplicands   = map (map $ digitsToInt . fst) equalSplit
-          products        = map (map $ digitsToInt . snd) equalSplit
-
-validProduct :: (Int, Int, Int) -> Bool
-validProduct (mr, md, p) = mr * md == p
+uniqueDigits :: Int -> Bool
+uniqueDigits number = (length $ nub numString) == length numString
+    where numString = show number
 
 pandigitalProducts :: [(Int, Int, Int)]
 pandigitalProducts =
-    nubBy (\(_, _, p1) (_, _, p2) -> p1 == p2)
-        $ filter validProduct
-        $ concat
-        $ map productIdentities
-        $ permutations [1..9]
+    nubBy (\(_, _, p1) (_, _, p2) -> p1 == p2) [ (x, y, x * y)
+                                               | x <- takeWhile (<= 99) uniqueDigitNumbers
+                                               , y <- takeWhile (<= 9999) uniqueDigitNumbers
+                                               , isPandigitalProduct x y
+                                               ]
+    where uniqueDigitNumbers = filter uniqueDigits [1..]
 
 answer :: Int
 answer = sum $ map (\(_, _, p) -> p) pandigitalProducts
