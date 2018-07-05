@@ -17,5 +17,5 @@ $ make test
 ## Run Individual Problem Solutions
 
 ```sh
-$ make run problem=[number] # i.e. make run problem=50
+$ make run problem=[number] # i.e. make run problem=1
 ```

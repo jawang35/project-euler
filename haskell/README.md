@@ -5,8 +5,7 @@ Solutions written in Haskell2010.
 ## Setup
 
 ```sh
-$ stack setup
-$ stack build
+$ make install
 ```
 
 ## Tests
@@ -14,11 +13,11 @@ $ stack build
 Unit tests are defined in the `test/Spec.hs` file.
 
 ```sh
-$ stack test
+$ make test
 ```
 
 ## Run Individual Problem Solutions
 
 ```sh
-$ stack src/Problem[number].hs # i.e. stack src/Problem15.hs
+$ make run problem=[number] # i.e. make run problem=1
 ```
