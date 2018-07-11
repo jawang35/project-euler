@@ -27,6 +27,7 @@ library
                      , Problem7
                      , Problem8
                      , Problem9
+                     , Problem10
                      , Problem11
                      , Problem12
                      , Problem13
@@ -54,6 +55,7 @@ library
                      , Problem67
   build-depends:       base >= 4.7 && < 5
                      , containers
+                     , data-ordlist
                      , split
                      , time
   default-language:    Haskell2010

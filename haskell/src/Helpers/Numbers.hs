@@ -1,5 +1,6 @@
 module Helpers.Numbers
-( isPrime
+( primes
+, isPrime
 , primeDivisors
 , divisors
 , properDivisors
@@ -7,6 +8,10 @@ module Helpers.Numbers
 ) where
 
 import Data.List (nub)
+import Data.List.Ordered (minus, union, unionAll)
+
+primes :: [Int]
+primes = 2:3:minus [5,7..] (unionAll [[p*p, p*p+2*p..] | p <- tail primes])
 
 isPrime :: (Integral a) => a -> Bool
 isPrime 2 = True
