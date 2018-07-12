@@ -23,13 +23,11 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 
 truncatablePrimes :: Int -> Bool
 truncatablePrimes number =
-    isPrime number && leftTruncationsArePrime && rightTruncationsArePrime
+    isPrime number && all isPrime (leftTruncations ++ rightTruncations)
     where numberDigits             = digits 10 number
           size                     = (length numberDigits) - 1
           leftTruncations          = nub $ map ((unDigits 10) . (flip drop numberDigits)) $ take size [1..]
           rightTruncations         = nub $ map ((unDigits 10) . (flip take numberDigits)) $ take size [1..]
-          leftTruncationsArePrime  = all isPrime leftTruncations
-          rightTruncationsArePrime = all isPrime rightTruncations
 
 answer = sum $ take 11 $ filter truncatablePrimes [11..]
 
