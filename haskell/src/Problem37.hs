@@ -28,8 +28,8 @@ truncatablePrimes number =
           size                     = (length numberDigits) - 1
           leftTruncations          = nub $ map ((unDigits 10) . (flip drop numberDigits)) $ take size [1..]
           rightTruncations         = nub $ map ((unDigits 10) . (flip take numberDigits)) $ take size [1..]
-          leftTruncationsArePrime  = filter isPrime leftTruncations == leftTruncations
-          rightTruncationsArePrime = filter isPrime rightTruncations == rightTruncations
+          leftTruncationsArePrime  = all isPrime leftTruncations
+          rightTruncationsArePrime = all isPrime rightTruncations
 
 answer = sum $ take 11 $ filter truncatablePrimes [11..]
 
