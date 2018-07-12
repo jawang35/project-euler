@@ -12,6 +12,7 @@ How many circular primes are there below one million?
 
 module Problem35
 ( answer
+, circularPrimes
 ) where
 
 import qualified Data.Set as Set

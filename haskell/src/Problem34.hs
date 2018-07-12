@@ -13,12 +13,12 @@ module Problem34
 ( answer
 ) where
 
-import Data.Char (digitToInt)
+import Data.Digits (digits)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 sumDigitFactorial :: Int -> Int
 sumDigitFactorial =
-    sum . map (factorial . digitToInt) . show
+    sum . map factorial . digits 10
     where factorial = product . (flip take [1..])
 
 answer :: Int

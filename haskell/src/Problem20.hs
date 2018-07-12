@@ -14,13 +14,13 @@ module Problem20
 , sumFactorialDigits
 ) where
 
-import Data.Char (digitToInt)
+import Data.Digits (digits)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-sumFactorialDigits :: Integer -> Int
-sumFactorialDigits n = sum $ map digitToInt $ show $ product [1..n]
+sumFactorialDigits :: Integer -> Integer
+sumFactorialDigits n = sum $ digits 10 $ product [1..n]
 
-answer :: Int
+answer :: Integer
 answer = sumFactorialDigits 100
 
 main = printAnswerAndElapsedTime answer

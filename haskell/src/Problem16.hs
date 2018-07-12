@@ -8,16 +8,12 @@ What is the sum of the digits of the number 2**1000?
 
 module Problem16
 ( answer
-, powerOfTwoDigitSum
 ) where
 
-import Data.Char (digitToInt)
+import Data.Digits (digits)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-powerOfTwoDigitSum :: Int -> Int
-powerOfTwoDigitSum power = sum $ map digitToInt (show $ 2^power)
-
-answer :: Int
-answer = powerOfTwoDigitSum 1000
+answer :: Integer
+answer = sum $ digits 10 $ 2^1000
 
 main = printAnswerAndElapsedTime answer

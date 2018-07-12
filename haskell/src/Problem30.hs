@@ -21,18 +21,18 @@ module Problem30
 , sumPowersOfDigits
 ) where
 
-import Data.Char (digitToInt)
+import Data.Digits (digits, unDigits)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 isSumPowerOfDigits :: Int -> Integer -> Bool
 isSumPowerOfDigits power number =
     number == toInteger sumPowerOfDigits
-    where sumPowerOfDigits = sum $ map ((^power) . digitToInt) $ show number
+    where sumPowerOfDigits = sum $ map (^power) $ digits 10 number
 
 sumPowersOfDigits :: Int -> Integer
 sumPowersOfDigits power =
     sum $ filter (isSumPowerOfDigits power) $ take largest [10..]
-    where largestNumbers     = map (read . flip replicate '9') [1..]
+    where largestNumbers     = map (unDigits 10 . flip replicate 9) [1..]
           largestSumOfPowers = map (* (9^power)) [1..]
           (_, largest)       = last
                                $ takeWhile (\(x, y) -> x < y)
