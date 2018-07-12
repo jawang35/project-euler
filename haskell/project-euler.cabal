@@ -16,9 +16,9 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:     Config
+                     , Helpers.Lists
                      , Helpers.Numbers
                      , Helpers.Runtime
-                     , Helpers.Strings
                      , Problem1
                      , Problem2
                      , Problem3
@@ -53,6 +53,7 @@ library
                      , Problem33
                      , Problem34
                      , Problem35
+                     , Problem36
                      , Problem67
   build-depends:       base >= 4.7 && < 5
                      , containers

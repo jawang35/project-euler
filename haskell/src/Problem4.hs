@@ -12,8 +12,8 @@ module Problem4
 , largestPalindromeProduct
 ) where
 
+import Helpers.Lists (isPalindrome)
 import Helpers.Runtime (printAnswerAndElapsedTime)
-import Helpers.Strings (isPalindrome)
 
 largestPalindromeProduct :: Int -> Int -> Int
 largestPalindromeProduct min max =
