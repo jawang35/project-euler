@@ -36,6 +36,7 @@ import Problem34
 import Problem35
 import Problem36
 import Problem37
+import Problem38
 import Problem67
 
 problem1 = TestCase $ assertEqual "Answer" 233168 Problem1.answer
@@ -79,6 +80,7 @@ problem34 = TestCase $ assertEqual "Answer" 40730 Problem34.answer
 problem35 = TestCase $ assertEqual "Answer" 55 Problem35.answer
 problem36 = TestCase $ assertEqual "Answer" 872187 Problem36.answer
 problem37 = TestCase $ assertEqual "Answer" 748317 Problem37.answer
+problem38 = TestCase $ assertEqual "Answer" 932718654 Problem38.answer
 problem67 = TestCase (do answer <- Problem67.answer
                          assertEqual "Answer" 7273 answer)
 
@@ -119,6 +121,7 @@ tests = TestList
     , TestLabel "Problem 35" problem35
     , TestLabel "Problem 36" problem36
     , TestLabel "Problem 37" problem37
+    , TestLabel "Problem 38" problem38
     , TestLabel "Problem 67" problem67
     ]
 
