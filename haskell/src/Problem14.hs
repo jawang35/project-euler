@@ -24,8 +24,7 @@ module Problem14
 , longestCollatzSequence
 ) where
 
-import Data.List (elemIndex)
-import Data.Maybe (fromJust)
+import Data.List (maximumBy)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 collatzSequence :: Int -> [Int]
@@ -39,9 +38,10 @@ collatzSequence number =
 
 longestCollatzSequence :: Int -> Int
 longestCollatzSequence limit =
-    fromJust (elemIndex longestSequenceLength sequenceLengths) + 1
-    where sequenceLengths       = init $ map (length . collatzSequence) [1..limit]
-          longestSequenceLength = maximum sequenceLengths
+    fst $ maximumBy (\(_, x) (_, y) -> compare x y)
+        $ zip [1..]
+        $ init
+        $ map (length . collatzSequence) [1..limit]
 
 answer :: Int
 answer = longestCollatzSequence 1000000

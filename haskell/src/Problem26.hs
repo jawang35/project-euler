@@ -25,10 +25,9 @@ module Problem26
 , recurringCycleLength
 ) where
 
-import Data.List (elemIndex)
+import Data.List (maximumBy)
 import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map
-import Data.Maybe (fromJust)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 quotientDigits :: (Int, Int) -> [(Int, Int)]
@@ -54,8 +53,10 @@ recurringCycleLength fraction@(numerator, denominator) =
 
 answer :: Int
 answer =
-    1 + (fromJust $ elemIndex maxCycleLength cycleLengths)
-    where cycleLengths   = take 999 $ map recurringCycleLength $ zip (cycle [1]) [1..]
-          maxCycleLength = maximum cycleLengths
+    fst $ maximumBy (\(_, x) (_, y) -> compare x y)
+        $ zip [1..]
+        $ take 999
+        $ map recurringCycleLength
+        $ zip (cycle [1]) [1..]
 
 main = printAnswerAndElapsedTime answer

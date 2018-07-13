@@ -14,8 +14,7 @@ module Problem39
 , rightTriangles
 ) where
 
-import Data.List (findIndex)
-import Data.Maybe (fromJust)
+import Data.List (maximumBy)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 rightTriangles :: Int -> [(Int, Int, Int)]
@@ -28,8 +27,8 @@ rightTriangles perimeter =
 
 answer :: Int
 answer =
-    1 + (fromJust $ findIndex (== mostTriangles) triangleCounts)
-    where triangleCounts = map (length . rightTriangles) [1..1000]
-          mostTriangles  = maximum triangleCounts
+    fst $ maximumBy (\(_, x) (_, y) -> compare x y)
+        $ zip [1..]
+        $ map (length . rightTriangles) [1..1000]
 
 main = printAnswerAndElapsedTime answer
