@@ -5,8 +5,11 @@ module Helpers.Numbers
 , divisors
 , properDivisors
 , fibs
+, isTriangular
+, isPentagonal
 ) where
 
+import Data.Fixed (mod')
 import Data.List (nub)
 import Data.List.Ordered (minus, union, unionAll)
 
@@ -39,3 +42,11 @@ properDivisors number = filter (\d -> d /= number) $ divisors number
 
 fibs :: (Integral a) => [a]
 fibs = 1:1:(zipWith (+) fibs $ tail fibs)
+
+isTriangular :: Int -> Bool
+isTriangular number =
+    (-1 + (sqrt . fromIntegral $ 1 - (4 * (-2 * number)))) `mod'` 2 == 0
+
+isPentagonal :: Int -> Bool
+isPentagonal number =
+    (1 + (sqrt . fromIntegral $ 1 - 4 * 3 * (-2) * number)) `mod'` 6 == 0

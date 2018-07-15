@@ -23,9 +23,9 @@ module Problem42
 
 import System.IO (readFile)
 import Data.Char (ord)
-import Data.Fixed (mod')
 import Data.List.Split (splitOn)
 import Config (assetsPath)
+import Helpers.Numbers (isTriangular)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 charValue :: Char -> Int
@@ -35,10 +35,6 @@ charValue char =
 
 wordValue :: String -> Int
 wordValue = sum . map charValue
-
-isTriangular :: Int -> Bool
-isTriangular number =
-    (-1 + sqrt(fromIntegral $ 1 - (4 * (-2 * number)))) `mod'` 2 == 0
 
 isTriangleWord :: String -> Bool
 isTriangleWord = isTriangular . wordValue

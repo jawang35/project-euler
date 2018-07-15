@@ -17,19 +17,14 @@ of D?
 module Problem44
 ( answer
 , pentagonalNumbers
-, isPentagonal
 ) where
 
-import Data.Fixed (mod')
 import qualified Data.Set as Set
+import Helpers.Numbers (isPentagonal)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 pentagonalNumbers :: [Int]
 pentagonalNumbers = map (\n -> n * (3 * n - 1) `div` 2) [1..]
-
-isPentagonal :: Int -> Bool
-isPentagonal number =
-    (1 + (sqrt . fromIntegral $ 1 - 4 * 3 * (-2) * number)) `mod'` 6 == 0
 
 answer :: Int
 answer = head [ x - y
