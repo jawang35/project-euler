@@ -10,10 +10,10 @@ module Problem10
 ( answer
 ) where
 
-import Helpers.Numbers (primes)
+import Math.NumberTheory.Primes.Sieve (primes)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-answer :: Int
+answer :: Integer
 answer = sum $ takeWhile (<2000000) primes
 
 main = printAnswerAndElapsedTime answer

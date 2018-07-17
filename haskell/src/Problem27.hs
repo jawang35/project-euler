@@ -32,17 +32,17 @@ module Problem27
 
 import Data.List (find)
 import Data.Maybe (fromJust)
-import Helpers.Numbers (isPrime)
+import Math.NumberTheory.Primes.Testing (isPrime)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-consecutivePrimes :: [Int] -> Int
+consecutivePrimes :: [Integer] -> Int
 consecutivePrimes = length . takeWhile isPrime
 
-consecutiveQuadraticPrimes :: Int -> Int -> Int
+consecutiveQuadraticPrimes :: Integer -> Integer -> Int
 consecutiveQuadraticPrimes a b =
     consecutivePrimes $ map (\n -> n^2 + (a * n) + b) [0..]
 
-answer :: Int
+answer :: Integer
 answer =
     a * b
     where allConsecutiveQuadraticPrimes = [ (a, b, consecutiveQuadraticPrimes a b)

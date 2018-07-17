@@ -15,14 +15,14 @@ module Problem41
 import Data.Digits (digits)
 import Data.List (find, sort)
 import Data.Maybe (fromJust)
-import Helpers.Numbers (primes)
+import Math.NumberTheory.Primes.Sieve (primes)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-isPandigital :: Int -> Bool
+isPandigital :: Integer -> Bool
 isPandigital number = sort numberDigits == take (length numberDigits) [1..]
     where numberDigits = digits 10 number
 
-answer :: Int
+answer :: Integer
 answer = fromJust $ find isPandigital $ reverse $ takeWhile (<= 7654321) primes
 
 main = printAnswerAndElapsedTime answer

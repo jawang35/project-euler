@@ -28,7 +28,7 @@ module Problem12
 , highlyDivisibleTriangularNumber
 ) where
 
-import Helpers.Numbers (divisors)
+import Math.NumberTheory.ArithmeticFunctions (divisors)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 triangularNumbers :: [Int]

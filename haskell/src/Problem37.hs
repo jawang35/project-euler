@@ -18,10 +18,10 @@ module Problem37
 
 import Data.Digits (digits, unDigits)
 import Data.List (nub)
-import Helpers.Numbers (isPrime)
+import Math.NumberTheory.Primes.Testing (isPrime)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-truncatablePrimes :: Int -> Bool
+truncatablePrimes :: Integer -> Bool
 truncatablePrimes number =
     isPrime number && all isPrime (leftTruncations ++ rightTruncations)
     where numberDigits             = digits 10 number

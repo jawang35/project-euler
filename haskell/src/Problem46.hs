@@ -22,23 +22,17 @@ module Problem46
 ) where
 
 import Data.List ((\\))
-import Helpers.Numbers (primes, isPrime)
+import Math.NumberTheory.Powers.Squares (isSquare)
+import Math.NumberTheory.Primes.Sieve (primes)
+import Math.NumberTheory.Primes.Testing (isPrime)
+import Helpers.Numbers (isInteger)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-isInteger :: (RealFrac a) => a -> Bool
-isInteger number =
-    number == (fromIntegral $ round number)
-
-isSquare :: (RealFrac a, Floating a) => a -> Bool
-isSquare number =
-    isInteger number && isInteger root
-    where root = sqrt number
-
-isGoldbach :: Int -> Bool
+isGoldbach :: Integer -> Bool
 isGoldbach number =
-    any (\p -> isSquare $ (fromIntegral ((number - p)) / 2)) $ takeWhile (< number) primes
+    any (\p -> let quotient = fromIntegral ((number - p)) / 2 in isInteger quotient && (isSquare $ floor quotient)) $ takeWhile (< number) primes
 
-answer :: Int
+answer :: Integer
 answer = head $ filter (\n -> odd n && not (isPrime n) && not (isGoldbach n)) [2..]
 
 main = printAnswerAndElapsedTime answer

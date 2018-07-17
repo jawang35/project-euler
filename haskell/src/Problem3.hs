@@ -11,13 +11,13 @@ module Problem3
 , largestPrimeFactor
 ) where
 
-import Helpers.Numbers (primeDivisors)
+import Math.NumberTheory.Primes.Factorisation (factorise)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-largestPrimeFactor :: Int -> Int
-largestPrimeFactor = maximum . primeDivisors
+largestPrimeFactor :: Integer -> Integer
+largestPrimeFactor = maximum . map fst . factorise
 
-answer :: Int
+answer :: Integer
 answer = largestPrimeFactor 600851475143
 
 main = printAnswerAndElapsedTime answer

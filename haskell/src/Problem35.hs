@@ -16,16 +16,16 @@ module Problem35
 ) where
 
 import qualified Data.Set as Set
-import Helpers.Numbers (primes)
+import Math.NumberTheory.Primes.Sieve (primes)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-rotate :: Int -> [Int]
+rotate :: Integer -> [Integer]
 rotate number =
     map (\i -> read $ take size $ drop i $ cycle numberString) $ take size [1..]
     where numberString = show number
           size         = length numberString
 
-circularPrimes :: Int -> [Int]
+circularPrimes :: Integer -> [Integer]
 circularPrimes limit =
     filter isCircularPrime validPrimes
     where validPrimes       = takeWhile (<limit) primes
