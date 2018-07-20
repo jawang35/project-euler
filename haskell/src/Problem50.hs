@@ -31,7 +31,7 @@ longestConsecutivePrimeSum limit =
     maximumBy (\(x, _) (y, _) -> compare x y) . map fromJust . takeWhile (\x -> x /= Nothing && (fst . fromJust) x /= 1) $ map longestSumStartingAt [1..]
     where validPrimes                = takeWhile (< limit) primes
           validPrimeSet              = Set.fromList validPrimes
-          longestSumStartingAt index = let sums = filter (\(_, s) -> Set.member s validPrimeSet) . zip [1..] . takeWhile (< limit) $ map (sum . (flip take $ drop index validPrimes)) [1..]
+          longestSumStartingAt index = let sums = filter (flip Set.member validPrimeSet . snd) . zip [1..] . takeWhile (< limit) $ map (sum . (flip take $ drop index validPrimes)) [1..]
                                        in if sums /= [] then Just $ last sums else Nothing
 
 answer :: Integer
