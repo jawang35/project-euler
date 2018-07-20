@@ -28,7 +28,7 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 
 longestConsecutivePrimeSum :: Integer -> (Int, Integer)
 longestConsecutivePrimeSum limit =
-    maximumBy (\x y -> compare (fst x) (fst y)) . map fromJust . takeWhile (\x -> x /= Nothing && (fst . fromJust) x /= 1) $ map longestSumStartingAt [1..]
+    maximumBy (\(x, _) (y, _) -> compare x y) . map fromJust . takeWhile (\x -> x /= Nothing && (fst . fromJust) x /= 1) $ map longestSumStartingAt [1..]
     where validPrimes                = takeWhile (< limit) primes
           validPrimeSet              = Set.fromList validPrimes
           longestSumStartingAt index = let sums = filter (\(_, s) -> Set.member s validPrimeSet) . zip [1..] . takeWhile (< limit) $ map (sum . (flip take $ drop index validPrimes)) [1..]
