@@ -20,7 +20,7 @@ memoize f = (map f [0..] !!)
 latticePaths :: Int -> Int -> Int
 latticePaths = memoize latticePaths'
     where
-        latticePaths' 0 = \_ -> 1
+        latticePaths' 0 = const 1
         latticePaths' x = memoize $ latticePaths'' x
             where
                 latticePaths'' _ 0 = 1

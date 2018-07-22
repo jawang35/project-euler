@@ -20,6 +20,6 @@ import Data.List (permutations, sort)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 answer :: Int
-answer = read $ (sort $ permutations "0123456789") !! 999999
+answer = read $ sort (permutations "0123456789") !! 999999
 
 main = printAnswerAndElapsedTime answer

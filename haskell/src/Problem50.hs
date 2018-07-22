@@ -21,17 +21,17 @@ module Problem50
 ) where
 
 import Data.List (maximumBy)
-import Data.Maybe (fromJust)
+import Data.Maybe (isJust, fromJust)
 import qualified Data.Set as Set
 import Math.NumberTheory.Primes.Sieve (primes)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 longestConsecutivePrimeSum :: Integer -> (Int, Integer)
 longestConsecutivePrimeSum limit =
-    maximumBy (\(x, _) (y, _) -> compare x y) . map fromJust . takeWhile (\x -> x /= Nothing && (fst . fromJust) x /= 1) $ map longestSumStartingAt [1..]
+    maximumBy (\(x, _) (y, _) -> compare x y) . map fromJust . takeWhile (\x -> isJust x && (fst . fromJust) x /= 1) $ map longestSumStartingAt [1..]
     where validPrimes                = takeWhile (< limit) primes
           validPrimeSet              = Set.fromList validPrimes
-          longestSumStartingAt index = let sums = filter (flip Set.member validPrimeSet . snd) . zip [1..] . takeWhile (< limit) $ map (sum . (flip take $ drop index validPrimes)) [1..]
+          longestSumStartingAt index = let sums = filter (flip Set.member validPrimeSet . snd) . zip [1..] . takeWhile (< limit) $ map (sum . flip take (drop index validPrimes)) [1..]
                                        in if sums /= [] then Just $ last sums else Nothing
 
 answer :: Integer

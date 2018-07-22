@@ -35,7 +35,7 @@ sumPowersOfDigits power =
     where largestNumbers     = map (unDigits 10 . flip replicate 9) [1..]
           largestSumOfPowers = map (* (9^power)) [1..]
           (_, largest)       = last
-                               $ takeWhile (\(x, y) -> x < y)
+                               $ takeWhile (uncurry (<))
                                $ zip largestNumbers largestSumOfPowers
 
 answer :: Integer

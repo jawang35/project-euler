@@ -19,7 +19,7 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 sumDigitFactorial :: Int -> Int
 sumDigitFactorial =
     sum . map factorial . digits 10
-    where factorial = product . (flip take [1..])
+    where factorial = product . (`take` [1..])
 
 answer :: Int
 -- 10000000 is an analytical upper bound since 9999999 > 7 * 9!

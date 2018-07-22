@@ -49,11 +49,11 @@ maxSumsTo :: [Int] -> [Int] -> [Int]
 maxSumsTo xs ys =
     zipWith max left right
     where left  = zipWith (+) xs ys ++ [last ys]
-          right = head ys:(zipWith (+) xs $ tail ys)
+          right = head ys:zipWith (+) xs (tail ys)
 
 pathSums :: [[Int]] -> [[Int]]
 pathSums (xs:ys:xss) =
-    xs:secondRow:(pathSums $ secondRow:xss)
+    xs:secondRow:pathSums (secondRow:xss)
     where secondRow = xs `maxSumsTo` ys
 pathSums xss = xss
 

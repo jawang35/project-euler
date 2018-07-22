@@ -34,12 +34,12 @@ nub' = toList . fromList
 
 sumNonAbundantSums :: Int
 sumNonAbundantSums =
-    sum [1..28123] - (sum abundantSums)
-    where abundantNumbers = filter (\n -> (sum $ properDivisors n) > n) [12..28123]
+    sum [1..28123] - sum abundantSums
+    where abundantNumbers = filter (\n -> sum (properDivisors n) > n) [12..28123]
           abundantSums    = nub' [a + b | a <- abundantNumbers
                                         , b <- abundantNumbers
                                         , a <= b
-                                        , (a + b <= 28123)
+                                        , a + b <= 28123
                                  ]
 
 answer :: Int

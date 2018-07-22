@@ -29,8 +29,8 @@ circularPrimes :: Integer -> [Integer]
 circularPrimes limit =
     filter isCircularPrime validPrimes
     where validPrimes       = takeWhile (<limit) primes
-          primeSet          = Set.fromList $ validPrimes
-          isCircularPrime p = let rotations = rotate p in rotations == filter (\n -> Set.member n primeSet) rotations
+          primeSet          = Set.fromList validPrimes
+          isCircularPrime p = let rotations = rotate p in rotations == filter (`Set.member` primeSet) rotations
 
 answer :: Int
 answer = length $ circularPrimes 1000000

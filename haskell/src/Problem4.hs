@@ -17,7 +17,7 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 
 largestPalindromeProduct :: Int -> Int -> Int
 largestPalindromeProduct min max =
-    maximum $ filter (\n -> isPalindrome $ show n) products
+    maximum $ filter (isPalindrome . show) products
     where products = [n * m | n <- [min..max], m <- [n..max]]
 
 answer :: Int

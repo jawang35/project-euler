@@ -27,7 +27,7 @@ sumSquareDifference :: Int -> Int
 sumSquareDifference maximum =
     squareOfSums - sumOfSquares
     where naturalNumbers = [1..maximum]
-          squareOfSums = (sum naturalNumbers) ^ 2
+          squareOfSums = sum naturalNumbers ^ 2
           sumOfSquares = sum $ map (^2) naturalNumbers
 
 answer :: Int

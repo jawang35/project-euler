@@ -26,7 +26,7 @@ import Math.NumberTheory.Primes.Factorisation (factorise)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 answer =
-    1 + (fromJust $ elemIndex (4, 4, 4, 4) $ zip4 primeFactorCounts (drop 1 primeFactorCounts) (drop 2 primeFactorCounts) (drop 3 primeFactorCounts))
+    1 + fromJust (elemIndex (4, 4, 4, 4) $ zip4 primeFactorCounts (drop 1 primeFactorCounts) (drop 2 primeFactorCounts) (drop 3 primeFactorCounts))
     where primeFactorCounts = map (length . factorise) [1..]
 
 main = printAnswerAndElapsedTime answer

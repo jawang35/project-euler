@@ -31,7 +31,7 @@ isPandigital = (== "123456789") . sort . show
 
 concatenatedProduct :: Int -> Int
 concatenatedProduct number =
-    unDigits 10 $ take 9 $ concat $ map ((digits 10) . (* number)) [1..]
+    unDigits 10 $ take 9 $ concatMap (digits 10 . (* number)) [1..]
 
 concatenatedProducts :: [Int]
 concatenatedProducts = filter isPandigital $ map concatenatedProduct [1..9876]

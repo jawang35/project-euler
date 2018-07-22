@@ -25,9 +25,9 @@ truncatablePrimes :: Integer -> Bool
 truncatablePrimes number =
     isPrime number && all isPrime (leftTruncations ++ rightTruncations)
     where numberDigits             = digits 10 number
-          size                     = (length numberDigits) - 1
-          leftTruncations          = nub $ map ((unDigits 10) . (flip drop numberDigits)) $ take size [1..]
-          rightTruncations         = nub $ map ((unDigits 10) . (flip take numberDigits)) $ take size [1..]
+          size                     = length numberDigits - 1
+          leftTruncations          = nub $ map (unDigits 10 . (`drop` numberDigits)) $ take size [1..]
+          rightTruncations         = nub $ map (unDigits 10 . (`take` numberDigits)) $ take size [1..]
 
 answer = sum $ take 11 $ filter truncatablePrimes [11..]
 

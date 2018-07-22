@@ -29,7 +29,7 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 
 primePermutations :: Integer -> [Integer]
 primePermutations prime =
-    nub . sort . filter (flip Set.member fourDigitPrimeSet) . map (unDigits 10) . permutations $ digits 10 prime
+    nub . sort . filter (`Set.member` fourDigitPrimeSet) . map (unDigits 10) . permutations $ digits 10 prime
 
 fourDigitPrimes :: [Integer]
 fourDigitPrimes = takeWhile (<10000) $ dropWhile (< 1000) primes
@@ -50,9 +50,8 @@ answer :: Integer
 answer =
     unDigits 10 $ digits 10 first ++ digits 10 second ++ digits 10 third
     where (first, second, third) = head $ filter (/= (1487,4817,8147))
-                                        $ map (fromJust)
+                                        $ map fromJust
                                         $ filter (/= Nothing)
-                                        $ map threeNumberSequence
-                                        $ map primePermutations fourDigitPrimes
+                                        $ map (threeNumberSequence . primePermutations) fourDigitPrimes
 
 main = printAnswerAndElapsedTime answer

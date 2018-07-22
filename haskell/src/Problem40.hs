@@ -23,7 +23,7 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 
 answer :: Int
 answer =
-    product [ fractionalPart !! 0
+    product [ head fractionalPart
             , fractionalPart !! 9
             , fractionalPart !! 99
             , fractionalPart !! 999
@@ -31,6 +31,6 @@ answer =
             , fractionalPart !! 99999
             , fractionalPart !! 999999
             ]
-    where fractionalPart = map digitToInt $ concat $ map show [1..]
+    where fractionalPart = map digitToInt $ concatMap show [1..]
 
 main = printAnswerAndElapsedTime answer

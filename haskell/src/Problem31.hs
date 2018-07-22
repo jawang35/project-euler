@@ -21,7 +21,7 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 coinCombinations :: [Int] -> Int -> [[Int]]
 coinCombinations _ 0          = [[]]
 coinCombinations coins amount =
-    concat $ map (\c -> zipWith (:) (repeat c) (remainingCoinCombinations c)) usableCoins
+    concatMap (\c -> map ((:) c) (remainingCoinCombinations c)) usableCoins
     where usableCoins                 = filter (<= amount) coins
           remainingCoinCombinations c = coinCombinations (filter (<= c) coins) (amount - c)
 

@@ -24,10 +24,10 @@ import Data.List (nub, nubBy, sort)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 isPandigitalProduct :: Int -> Int -> Bool
-isPandigitalProduct x y = (sort $ show x ++ show y ++ show (x * y)) == "123456789"
+isPandigitalProduct x y = sort (show x ++ show y ++ show (x * y)) == "123456789"
 
 uniqueDigits :: Int -> Bool
-uniqueDigits number = (length $ nub numString) == length numString
+uniqueDigits number = length (nub numString) == length numString
     where numString = show number
 
 pandigitalProducts :: [(Int, Int, Int)]

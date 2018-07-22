@@ -119,7 +119,7 @@ largeSum :: Int -> [Integer] -> Integer
 largeSum leadingDigits numbers =
     read $ take leadingDigits $ show $ sum truncatedNumbers
     where digitsPerNumber  = length $ show $ head numbers
-          digitsToConsider = round $ (fromIntegral leadingDigits) + (logBase 10 (fromIntegral $ length numbers))
+          digitsToConsider = round $ fromIntegral leadingDigits + logBase 10 (fromIntegral $ length numbers)
           truncateNumber   = flip quot $ 10^(digitsPerNumber - digitsToConsider)
           truncatedNumbers = map truncateNumber numbers
 

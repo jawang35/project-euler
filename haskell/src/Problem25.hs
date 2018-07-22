@@ -36,7 +36,7 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 
 fibOfSize :: Int -> Int
 fibOfSize digits =
-    1 + (fromJust $ findIndex ((>= digits) . length . show) fibs)
+    1 + fromJust (findIndex ((>= digits) . length . show) fibs)
 
 answer :: Int
 answer = fibOfSize 1000

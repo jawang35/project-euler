@@ -16,13 +16,13 @@ import Math.NumberTheory.UniqueFactorisation (UniqueFactorisation)
 
 isInteger :: (RealFrac a) => a -> Bool
 isInteger number =
-    number == (fromIntegral $ round number)
+    number == fromIntegral (round number)
 
 properDivisors :: (UniqueFactorisation a, Ord a, Num a) => a -> Set a
 properDivisors n = Set.delete n $ divisors n
 
 fibs :: (Integral a) => [a]
-fibs = 1:1:(zipWith (+) fibs $ tail fibs)
+fibs = 1:1:zipWith (+) fibs (tail fibs)
 
 isTriangular :: (Integral a) => a -> Bool
 isTriangular number =

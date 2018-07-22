@@ -49,7 +49,7 @@ largestProductInASeries digits series =
 answer :: IO Int
 answer = do
     contents <- readFile $ assetsPath ++ "/problem8/series.txt"
-    let series = map (digitToInt) contents
+    let series = map digitToInt contents
     return $ largestProductInASeries 13 series
 
 main = do

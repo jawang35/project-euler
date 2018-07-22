@@ -18,9 +18,11 @@ module Problem17
 , numberLetterCount
 ) where
 
+import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
+ones :: Map String Int
 ones = Map.fromList
     [ ("1", 3) -- one
     , ("2", 3) -- two
@@ -33,6 +35,7 @@ ones = Map.fromList
     , ("9", 4) -- nine
     ]
 
+tens :: Map String Int
 tens = Map.fromList
     [ ("1", 3) -- ten
     , ("2", 6) -- twenty
@@ -45,6 +48,7 @@ tens = Map.fromList
     , ("9", 6) -- ninety
     ]
 
+teens :: Map String Int
 teens = Map.fromList
     [ ("11", 6) -- eleven
     , ("12", 6) -- twelve
@@ -57,22 +61,25 @@ teens = Map.fromList
     , ("19", 8) -- nineteen
     ]
 
+firstDigit :: Int -> String
+firstDigit = take 1 . show
+
 numberLetterCount :: Int -> Int
 numberLetterCount n
-    | n > 999   = ones Map.! (take 1 (show n)) + 8
+    | n > 999   = ones Map.! firstDigit n + 8
                 + (let rest = n `mod` 1000 in
                     (if 0 < rest && rest < 100
                         then 3 + numberLetterCount rest
                         else numberLetterCount rest))
-    | n > 99    = ones Map.! (take 1 (show n)) + 7
+    | n > 99    = ones Map.! firstDigit n + 7
                 + (let rest = n `mod` 100 in
                     (if rest > 0
                         then 3 + numberLetterCount rest
                         else 0))
-    | n > 19    = tens Map.! (take 1 (show n)) + (numberLetterCount $ n `mod` 10)
-    | n > 10    = teens Map.! (show n)
+    | n > 19    = tens Map.! firstDigit n + numberLetterCount (n `mod` 10)
+    | n > 10    = teens Map.! show n
     | n == 10   = tens Map.! "1"
-    | n > 0     = ones Map.! (show n)
+    | n > 0     = ones Map.! show n
     | otherwise = 0
 
 answer :: Int

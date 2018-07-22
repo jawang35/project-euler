@@ -30,7 +30,7 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 
 charValue :: Char -> Int
 charValue char =
-    (ord char) - offset
+    ord char - offset
     where offset = ord 'A' - 1
 
 wordValue :: String -> Int

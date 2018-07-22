@@ -29,7 +29,7 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 
 hasUniqueDigits :: Int -> Bool
 hasUniqueDigits number =
-    (length $ nub numberDigits) == length numberDigits
+    length (nub numberDigits) == length numberDigits
     where numberDigits = show number
 
 uniqueDigitMultiples :: Int -> [Int]
@@ -37,7 +37,7 @@ uniqueDigitMultiples factor = filter hasUniqueDigits $ takeWhile (<1000) $ dropW
 
 answer :: Int
 answer =
-    sum $ map (unDigits 10) $ foldl (\numbers factor -> filter ((== 0) . (`mod` factor) . (unDigits 10) . (take 3)) [digit:number | number <- numbers, digit <- pandigitalDigits \\ number]) startingValue [13, 11, 7, 5, 3, 2, 1]
+    sum $ map (unDigits 10) $ foldl (\numbers factor -> filter ((== 0) . (`mod` factor) . unDigits 10 . take 3) [digit:number | number <- numbers, digit <- pandigitalDigits \\ number]) startingValue [13, 11, 7, 5, 3, 2, 1]
     where startingValue    = map (digits 10) $ uniqueDigitMultiples 17
           pandigitalDigits = [0..9]
 

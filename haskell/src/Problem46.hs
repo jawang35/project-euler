@@ -30,7 +30,7 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 
 isGoldbach :: Integer -> Bool
 isGoldbach number =
-    any (\p -> let quotient = fromIntegral ((number - p)) / 2 in isInteger quotient && (isSquare $ floor quotient)) $ takeWhile (< number) primes
+    any (\p -> let quotient = fromIntegral (number - p) / 2 in isInteger quotient && isSquare (floor quotient)) $ takeWhile (< number) primes
 
 answer :: Integer
 answer = head $ filter (\n -> odd n && not (isPrime n) && not (isGoldbach n)) [2..]

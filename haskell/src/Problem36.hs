@@ -20,6 +20,6 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 
 answer :: Int
 answer =
-    sum $ filter (\n -> (isPalindrome $ digits 10 n) && (isPalindrome $ digits 2 n)) [1..999999]
+    sum $ filter (\n -> isPalindrome (digits 10 n) && isPalindrome (digits 2 n)) [1..999999]
 
 main = printAnswerAndElapsedTime answer

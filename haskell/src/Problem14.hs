@@ -30,10 +30,10 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 collatzSequence :: Int -> [Int]
 collatzSequence 1 = [1]
 collatzSequence number =
-    number:(collatzSequence next)
+    number:collatzSequence next
     where
         next
-            | (number `mod` 2 == 0) = number `div` 2
+            | number `mod` 2 == 0 = number `div` 2
             | otherwise           = 3 * number + 1
 
 longestCollatzSequence :: Int -> Int

@@ -33,7 +33,7 @@ import Helpers.Runtime (printAnswerAndElapsedTime)
 quotientDigits :: (Int, Int) -> [(Int, Int)]
 quotientDigits (numerator, denominator)
     | numerator == 0 = []
-    | otherwise      = (quotient, remainder):(quotientDigits (remainder * 10, denominator))
+    | otherwise      = (quotient, remainder):quotientDigits (remainder * 10, denominator)
     where
         quotient  = numerator `div` denominator
         remainder = numerator `mod` denominator
@@ -56,7 +56,6 @@ answer =
     fst $ maximumBy (\(_, x) (_, y) -> compare x y)
         $ zip [1..]
         $ take 999
-        $ map recurringCycleLength
-        $ zip (cycle [1]) [1..]
+        $ map (curry recurringCycleLength 1) [1..]
 
 main = printAnswerAndElapsedTime answer
