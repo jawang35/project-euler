@@ -70,6 +70,7 @@ library
                      , Problem50
                      , Problem52
                      , Problem53
+                     , Problem54
                      , Problem67
   build-depends:       base >= 4.7 && < 5
                      , arithmoi
