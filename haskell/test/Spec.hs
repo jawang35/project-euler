@@ -54,6 +54,7 @@ import Problem53
 import Problem54
 import Problem55
 import Problem56
+import Problem57
 import Problem67
 
 problem1 = TestCase $ assertEqual "Answer" 233168 Problem1.answer
@@ -117,6 +118,7 @@ problem54 = TestCase (do answer <- Problem54.answer
                          assertEqual "Answer" 376 answer)
 problem55 = TestCase $ assertEqual "Answer" 249 Problem55.answer
 problem56 = TestCase $ assertEqual "Answer" 972 Problem56.answer
+problem57 = TestCase $ assertEqual "Answer" 153 Problem57.answer
 problem67 = TestCase (do answer <- Problem67.answer
                          assertEqual "Answer" 7273 answer)
 
@@ -175,6 +177,7 @@ tests = TestList
     , TestLabel "Problem 54" problem54
     , TestLabel "Problem 55" problem55
     , TestLabel "Problem 56" problem56
+    , TestLabel "Problem 57" problem57
     , TestLabel "Problem 67" problem67
     ]
 

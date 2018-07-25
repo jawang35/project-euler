@@ -1,3 +1,4 @@
+# coding=utf-8
 '''
 Problem 57 - Square Root Convergents
 
@@ -20,6 +21,8 @@ numerator exceeds the number of digits in the denominator.
 In the first one-thousand expansions, how many fractions contain a numerator
 with more digits than denominator?
 '''
+
+from lib.helpers.runtime import print_answer_and_elapsed_time
 
 
 class Fraction:
@@ -52,3 +55,6 @@ def answer():
     return len([f
                 for f in square_root_fractions(1000)
                 if len(str(f.numerator)) > len(str(f.denominator))])
+
+if __name__ == '__main__':
+    print_answer_and_elapsed_time(answer)
