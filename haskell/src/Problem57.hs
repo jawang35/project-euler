@@ -23,16 +23,22 @@ with more digits than denominator?
 
 module Problem57
 ( answer
+, isImproper
 , sqrt2Fractions
 ) where
 
 import Data.Ratio (Ratio, (%), denominator, numerator)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
+isImproper :: Ratio Integer -> Bool
+isImproper fraction =
+    (length . show $ numerator fraction) > (length . show $ denominator fraction)
+
 sqrt2Fractions :: [Ratio Integer]
-sqrt2Fractions = (3 % 2):(7 % 5):zipWith (\_ y -> let f = 1 + y in 1 + denominator f % numerator f) sqrt2Fractions (tail sqrt2Fractions)
+sqrt2Fractions =
+    (3 % 2):(7 % 5):zipWith (\_ y -> let f = 1 + y in 1 + denominator f % numerator f) sqrt2Fractions (tail sqrt2Fractions)
 
 answer :: Int
-answer = length . filter (\f -> (length . show $ numerator f) > (length . show $ denominator f)) $ take 1000 sqrt2Fractions
+answer = length . filter isImproper $ take 1000 sqrt2Fractions
 
 main = printAnswerAndElapsedTime answer
