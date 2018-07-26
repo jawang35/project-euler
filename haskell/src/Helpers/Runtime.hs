@@ -2,15 +2,14 @@ module Helpers.Runtime
 ( printAnswerAndElapsedTime
 ) where
 
-import Control.Exception
-import System.CPUTime
-import Text.Printf
+import Control.Exception (evaluate)
+import System.CPUTime (getCPUTime)
+import Text.Printf (printf)
 
 printAnswerAndElapsedTime :: (Show a) => a -> IO ()
-printAnswerAndElapsedTime a = do
+printAnswerAndElapsedTime answer = do
     start <- getCPUTime
-    value <- evaluate a
+    value <- evaluate answer
     end <- getCPUTime
-    let elapsed = fromIntegral (end - start) / (10^9)
-    printf "Answer: %s\n" (show value)
-    printf "Elapsed time: %fms\n" (elapsed :: Double)
+    printf "Answer: %s\n" $ show value
+    printf "Elapsed time: %fms\n" $ fromIntegral (end - start) / (10 ^ 9)
