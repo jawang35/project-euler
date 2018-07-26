@@ -29,6 +29,7 @@ truncatablePrimes number =
           leftTruncations          = nub $ map (unDigits 10 . (`drop` numberDigits)) $ take size [1..]
           rightTruncations         = nub $ map (unDigits 10 . (`take` numberDigits)) $ take size [1..]
 
+answer :: Integer
 answer = sum $ take 11 $ filter truncatablePrimes [11..]
 
 main = printAnswerAndElapsedTime answer
