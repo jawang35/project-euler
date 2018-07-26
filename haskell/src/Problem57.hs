@@ -36,7 +36,8 @@ isImproper fraction =
 
 sqrt2Fractions :: [Ratio Integer]
 sqrt2Fractions =
-    (3 % 2):(7 % 5):zipWith (\_ y -> let f = 1 + y in 1 + denominator f % numerator f) sqrt2Fractions (tail sqrt2Fractions)
+    scanl (nextIteration) (3 % 2) [1..]
+    where nextIteration f _ = let f' = 1 + f in 1 + denominator f' % numerator f'
 
 answer :: Int
 answer = length . filter isImproper $ take 1000 sqrt2Fractions
