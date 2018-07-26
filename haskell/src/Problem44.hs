@@ -27,11 +27,12 @@ pentagonalNumbers :: [Int]
 pentagonalNumbers = map (\n -> n * (3 * n - 1) `div` 2) [1..]
 
 answer :: Int
-answer = head [ x - y
+answer = head [ difference
               | x <- pentagonalNumbers
               , y <- takeWhile (< x) pentagonalNumbers
               , isPentagonal (x + y)
-              , isPentagonal (x - y)
+              , let difference = x - y
+              , isPentagonal difference
               ]
 
 main = printAnswerAndElapsedTime answer

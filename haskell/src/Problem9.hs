@@ -27,9 +27,9 @@ productFirstPythagoreanTriplet (x:_) = tripletProduct x
     where tripletProduct (a, b, c) = a * b * c
 
 productSpecialPythagoreanTriplet :: Int -> Int
-productSpecialPythagoreanTriplet sum =
+productSpecialPythagoreanTriplet perimeter =
     productFirstPythagoreanTriplet specialPythagoreanTriplets
-    where possibleTriplets = [(a, b, sum - a - b) | a <- [1..(sum - 2)], b <- [a..(sum - a - 1)]]
+    where possibleTriplets = [(a, b, perimeter - a - b) | a <- [1..(perimeter - 2)], b <- [a..(perimeter - a - 1)]]
           specialPythagoreanTriplets = filter isPythagorean possibleTriplets
 
 answer :: Int

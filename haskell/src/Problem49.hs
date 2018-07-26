@@ -40,10 +40,11 @@ fourDigitPrimeSet = Set.fromList fourDigitPrimes
 threeNumberSequence :: [Integer] -> Maybe (Integer, Integer, Integer)
 threeNumberSequence sortedNumbers =
     if sequences /= [] then Just $ head sequences else Nothing
-    where sequences = [ (a, b, b + (b - a))
+    where sequences = [ (a, b, c)
                       | a <- sortedNumbers
                       , b <- dropWhile (<= a) sortedNumbers
-                      , b + (b - a) `elem` sortedNumbers
+                      , let c = b + (b - a)
+                      , c `elem` sortedNumbers
                       ]
 
 answer :: Integer
