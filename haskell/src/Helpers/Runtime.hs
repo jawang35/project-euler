@@ -12,4 +12,4 @@ printAnswerAndElapsedTime answer = do
     value <- evaluate answer
     end <- getCPUTime
     printf "Answer: %s\n" $ show value
-    printf "Elapsed time: %fms\n" $ fromIntegral (end - start) / (10 ^ 9)
+    printf "Elapsed time: %fms\n" (fromIntegral (end - start) / (10 ^ 9) :: Double)
