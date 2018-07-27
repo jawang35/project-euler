@@ -27,14 +27,14 @@ module Problem57
 , sqrt2Fractions
 ) where
 
-import Data.Ratio (Ratio, (%), denominator, numerator)
+import Data.Ratio (Rational, (%), denominator, numerator)
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
-isImproper :: Ratio Integer -> Bool
+isImproper :: Rational -> Bool
 isImproper fraction =
     (length . show $ numerator fraction) > (length . show $ denominator fraction)
 
-sqrt2Fractions :: [Ratio Integer]
+sqrt2Fractions :: [Rational]
 sqrt2Fractions =
     scanl (nextIteration) (3 % 2) [1..]
     where nextIteration f _ = let f' = 1 + f in 1 + denominator f' % numerator f'
