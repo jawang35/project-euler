@@ -43,7 +43,7 @@ spiralCorners =
 answer :: Integer
 answer = fst
        . head
-       . dropWhile (\(_, (primes, total)) -> (fromIntegral primes) / (fromIntegral total) >= 0.1)
+       . dropWhile (\(_, (primes, total)) -> fromIntegral primes / fromIntegral total >= 0.1)
        . tail
        . zip [1,3..]
        $ scanl countPrimeCorners (0, 1) spiralCorners

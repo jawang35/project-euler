@@ -33,8 +33,8 @@ module Problem28
 import Helpers.Runtime (printAnswerAndElapsedTime)
 
 prependDiagonals :: [Int] -> Int -> [Int]
-prependDiagonals xxs@(x:xs) n =
-    fourth:third:second:first:xxs
+prependDiagonals xs@(x:_) n =
+    fourth:third:second:first:xs
     where step   = 2 * n
           first  = x + step
           second = first + step

@@ -36,7 +36,7 @@ isImproper fraction =
 
 sqrt2Fractions :: [Rational]
 sqrt2Fractions =
-    scanl (nextIteration) (3 % 2) [1..]
+    scanl nextIteration (3 % 2) [1..]
     where nextIteration f _ = let f' = 1 + f in 1 + denominator f' % numerator f'
 
 answer :: Int
