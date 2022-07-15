@@ -1,7 +1,7 @@
 appdirs==1.4.3
 certifi==2018.1.18
 chardet==3.0.4
-codecov==2.0.15
+codecov==2.0.16
 coverage==4.5.1
 idna==2.6
 lib==1.0
